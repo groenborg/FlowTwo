@@ -5,7 +5,7 @@ package dk.kasper.simon;
  *
  *      @author Simon & Kasper
  * 
- *      Version 0.0.1.0 
+ *      Version 0.0.1.1 
  * 
  * 
  * 
