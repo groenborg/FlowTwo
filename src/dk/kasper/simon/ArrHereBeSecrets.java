@@ -11,6 +11,21 @@ package dk.kasper.simon;
 public class ArrHereBeSecrets {
     
     
+    /*
+     * Salty Seadog 
+     * Timber Fiddler 
+     * Landlubber
+     * Dred Pirate
+     * Cap'n 
+     * Scurvy Dog
+     * Peglegged 
+     * Cutthroat 
+     * Deck swapper 
+     */
+    
+    private boolean pirateMode;
+    
+    
     
     public ArrHereBeSecrets(String name){
         

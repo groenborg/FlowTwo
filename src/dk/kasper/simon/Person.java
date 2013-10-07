@@ -10,7 +10,8 @@ package dk.kasper.simon;
  */
 public class Person {
  
-    private String name;
+    private String name, secretTitle;
+    
     private int admin, analyst, creative, finisher;
     
     
@@ -24,10 +25,11 @@ public class Person {
     
     
     
+    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append(this.name);
+        sb.append(this.secretTitle).append(this.name);
         return sb.toString();
     }
     
