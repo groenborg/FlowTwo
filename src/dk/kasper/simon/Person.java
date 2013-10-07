@@ -11,7 +11,6 @@ package dk.kasper.simon;
 public class Person {
  
     private String name, secretTitle;
-    
     private int admin, analyst, creative, finisher;
     
     
@@ -22,9 +21,50 @@ public class Person {
         this.finisher = finisher;
         this.name = name;   
     }
-    
-    
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAdmin() {
+        return admin;
+    }
+
+    public int getAnalyst() {
+        return analyst;
+    }
+
+    public int getCreative() {
+        return creative;
+    }
+
+    public int getFinisher() {
+        return finisher;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSecretTitle(String secretTitle) {
+        this.secretTitle = secretTitle;
+    }
+
+    public void setAdmin(int admin) {
+        this.admin = admin;
+    }
+
+    public void setAnalyst(int analyst) {
+        this.analyst = analyst;
+    }
+
+    public void setCreative(int creative) {
+        this.creative = creative;
+    }
+
+    public void setFinisher(int finisher) {
+        this.finisher = finisher;
+    }
     
     @Override
     public String toString(){
