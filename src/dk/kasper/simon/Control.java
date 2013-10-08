@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class Control {
 
-    private Scanner fileScan, inputScan;
+    private static Scanner fileScan, inputScan;
     private FileWriter out;
     private PrintWriter pw;
     private ArrayList<Person> persons;
@@ -42,22 +42,49 @@ public class Control {
     }
 
     public void loadFromFile() {
+        fileScan = new Scanner(path);
+        try {
+            while (fileScan.hasNext()) {
+                String tmp = fileScan.nextLine();
+                String[] tokens = tmp.split(",");
+                int ad = Integer.parseInt(tokens[1]);
+                int an = Integer.parseInt(tokens[2]);
+                int cr = Integer.parseInt(tokens[3]);
+                int fi = Integer.parseInt(tokens[4]);
+                persons.add(new Person(tokens[0], ad, an, cr, fi));
+            }
+        } catch (Exception e) {
+            System.out.println("Could not load file");
+        }
     }
 
     public void saveToFile() {
-
         try {
             pw = new PrintWriter(path);
             for (int x = 0; x < persons.size(); ++x) {
                 pw.write(persons.get(x).toFile());
             }
+            pw.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println("File not found");
         } catch (Exception e) {
             System.out.println("Error in writing to file");
         }
     }
 
     public String showPerson(Person person) {
-        return person.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append("Name: \t");
+        sb.append(person.toString()).append("\n");
+        sb.append("administrator: \t");
+        sb.append(person.getAdmin()).append("\n");
+        sb.append("Analyst: \t");
+        sb.append(person.getAnalyst()).append("\n");
+        sb.append("Creative: \t");
+        sb.append(person.getCreative()).append("\n");
+        sb.append("Finisher: \t");
+        sb.append(person.getFinisher());
+        return sb.toString();
     }
 
     private void initialSetup() {
@@ -82,7 +109,6 @@ public class Control {
             file = new File(sb.toString());
             file.createNewFile();
             this.path = sb.toString();
-
         } catch (Exception e) {
             System.out.println("Could not create file");
         }

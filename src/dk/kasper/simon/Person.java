@@ -44,20 +44,32 @@ public class Person {
     public void setFinisher(int finisher) {
         this.finisher = finisher;
     }
-    
-    
-    
+
+    public int getAdmin() {
+        return admin;
+    }
+
+    public int getAnalyst() {
+        return analyst;
+    }
+
+    public int getCreative() {
+        return creative;
+    }
+
+    public int getFinisher() {
+        return finisher;
+    }
     
     public String toFile(){
         String person = name+","+admin+","+analyst+","+creative+","+finisher;
         return person;
     }
     
-    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append(this.secretTitle).append(this.name);
+        sb.append(this.name);
         return sb.toString();
     }
     
