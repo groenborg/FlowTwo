@@ -8,7 +8,7 @@ import javax.swing.DefaultListModel;
 public class MainFrame extends javax.swing.JFrame {
     private Control control;
     private DefaultListModel model;
-    
+    private Person tmp;
     
     
     public MainFrame() {
@@ -184,6 +184,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        editFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                editFrameWindowActivated(evt);
+            }
+        });
+
         jLabel7.setText("Edit the fields to change the persons name or scores.");
 
         jLabel8.setText("Name");
@@ -203,6 +209,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         newPersonCreate1.setText("Apply");
+        newPersonCreate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newPersonCreate1ActionPerformed(evt);
+            }
+        });
 
         newPersonCancel1.setText("Cancel");
 
@@ -242,7 +253,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(editFrameLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(newPersonCreate1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(newPersonCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
         );
@@ -539,17 +550,18 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loadMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadMenuItemActionPerformed
-        // TODO add your handling code here:
+        
         control.loadFromFile();
     }//GEN-LAST:event_loadMenuItemActionPerformed
 
     private void createFinFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createFinFieldActionPerformed
-        // TODO add your handling code here:
+        
         
     }//GEN-LAST:event_createFinFieldActionPerformed
 
     private void editFinFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFinFieldActionPerformed
-        // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_editFinFieldActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
@@ -567,7 +579,6 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        // TODO add your handling code here:
         createFrame.pack();
         createFrame.setLocationRelativeTo(null);
         createFrame.setVisible(true);
@@ -581,14 +592,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_personListMouseClicked
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        // TODO add your handling code here:
         editFrame.pack();
         editFrame.setLocationRelativeTo(null);
         editFrame.setVisible(true);
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
         if(personList.getSelectedValue()!=null){
         deleteBox.pack();
         deleteBox.setLocationRelativeTo(null);
@@ -599,11 +608,30 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void deleteBoxWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_deleteBoxWindowActivated
-        // TODO add your handling code here:
         Object selected = personList.getSelectedValue();
         Person p = ((Person)selected);
         jLabel16.setText("Are you sure you wish to delete "+p.toString()+"?");
     }//GEN-LAST:event_deleteBoxWindowActivated
+
+    private void editFrameWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_editFrameWindowActivated
+        Object selected = personList.getSelectedValue();
+        Person p = ((Person)selected);
+        editNameField.setText(p.toString());
+        editAdminField.setText(""+p.getAdmin());
+        editAnalField.setText(""+p.getAnalyst());
+        editCreaField.setText(""+p.getCreative());
+        editFinField.setText(""+p.getFinisher());
+        this.tmp = p;
+    }//GEN-LAST:event_editFrameWindowActivated
+
+    private void newPersonCreate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonCreate1ActionPerformed
+        String name = editNameField.getText();
+        int ad = Integer.parseInt(editAdminField.getText());
+        int an = Integer.parseInt(editAnalField.getText());
+        int cr = Integer.parseInt(editCreaField.getText());
+        int fi = Integer.parseInt(editFinField.getText());
+        control.editPerson(name, ad, an, cr, fi,tmp);
+    }//GEN-LAST:event_newPersonCreate1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -639,6 +667,12 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    public void editFrame(){
+    
+    }
+    
     
     
     private void refreshList(){

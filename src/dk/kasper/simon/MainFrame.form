@@ -153,6 +153,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="editFrame">
+      <Events>
+        <EventHandler event="windowActivated" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="editFrameWindowActivated"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -198,7 +201,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="newPersonCreate1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <EmptySpace pref="51" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="newPersonCancel1" min="-2" pref="100" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               </Group>
@@ -297,6 +300,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Apply"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newPersonCreate1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="newPersonCancel1">
           <Properties>

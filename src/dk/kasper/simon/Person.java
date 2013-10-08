@@ -61,7 +61,6 @@ public class Person {
         return finisher;
     }
     
-    
     public String showPerson() {
         StringBuilder sb = new StringBuilder();
         sb.append("Name: \t");
