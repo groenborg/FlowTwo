@@ -36,6 +36,14 @@ public class Control {
         return person;
     }
     
+    public Person giveArray(int x){
+        return persons.get(x);
+    }
+    
+    public int arraySize(){
+        return persons.size();
+    }
+    
     public Person editPerson(String n, int a, int b, int c, int d, Person person){
         person.setName(n);
         person.setAdmin(a);
@@ -56,10 +64,10 @@ public class Control {
     }
 
     public void loadFromFile() {
-        fileScan = new Scanner(path);
         try {
+            fileScan = new Scanner(new File(path));
             while (fileScan.hasNext()) {
-                String tmp = fileScan.nextLine();
+                String tmp = fileScan.next();
                 String[] tokens = tmp.split(",");
                 int ad = Integer.parseInt(tokens[1]);
                 int an = Integer.parseInt(tokens[2]);
@@ -67,8 +75,10 @@ public class Control {
                 int fi = Integer.parseInt(tokens[4]);
                 persons.add(new Person(tokens[0], ad, an, cr, fi));
             }
-        } catch (Exception e) {
+        } catch (FileNotFoundException ex) {
             System.out.println("Could not load file");
+        }catch(Exception e){
+        
         }
     }
     
