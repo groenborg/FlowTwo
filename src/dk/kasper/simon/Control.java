@@ -22,20 +22,33 @@ public class Control {
     private PrintWriter pw;
     private ArrayList<Person> persons;
     private String path;
+    private boolean saveState;
 
     public Control() {
+        this.saveState = false;
         initialSetup();
     }
 
     public Person createPerson(String n, int a, int b, int c, int d) {
         Person person = new Person(n, a, b, c, d);
         persons.add(person);
+        this.saveState = true;
         return person;
     }
-
+    
+    public Person editPerson(String n, int a, int b, int c, int d, Person person){
+        person.setName(n);
+        person.setAdmin(a);
+        person.setAnalyst(b);
+        person.setCreative(c);
+        person.setFinisher(d);
+        return person;
+    }
+    
     public void deletePerson(Person name) {
         for (int x = 0; x < persons.size(); ++x) {
             if (persons.get(x).equals(name)) {
+                this.saveState = true;
                 persons.remove(x);
             }
         }
@@ -57,19 +70,34 @@ public class Control {
             System.out.println("Could not load file");
         }
     }
-
+    
+    
     public void saveToFile() {
         try {
             pw = new PrintWriter(path);
             for (int x = 0; x < persons.size(); ++x) {
                 pw.write(persons.get(x).toFile());
             }
+            this.saveState = false;
             pw.close();
         } catch (FileNotFoundException ex) {
             System.out.println("File not found");
         } catch (Exception e) {
             System.out.println("Error in writing to file");
         }
+    }
+
+    public boolean checkSecret() {
+        try {
+            fileScan = new Scanner(path);
+            String dp = "Dread Pirate";
+            String tmp = fileScan.findInLine(dp);
+            if (tmp.equalsIgnoreCase(tmp)) {
+                return true;
+            }
+        } catch (Exception e) {
+        }
+        return false;
     }
 
     public String showPerson(Person person) {

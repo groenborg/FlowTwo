@@ -61,6 +61,9 @@ public class Person {
         return finisher;
     }
     
+    
+    
+    
     public String toFile(){
         String person = name+","+admin+","+analyst+","+creative+","+finisher;
         return person;
