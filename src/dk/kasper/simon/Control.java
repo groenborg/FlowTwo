@@ -26,6 +26,7 @@ public class Control {
 
     public Control() {
         this.saveState = false;
+        persons = new ArrayList();
         initialSetup();
     }
 
@@ -69,16 +70,17 @@ public class Control {
             while (fileScan.hasNext()) {
                 String tmp = fileScan.next();
                 String[] tokens = tmp.split(",");
+                String l = tokens[0];
                 int ad = Integer.parseInt(tokens[1]);
                 int an = Integer.parseInt(tokens[2]);
                 int cr = Integer.parseInt(tokens[3]);
                 int fi = Integer.parseInt(tokens[4]);
-                persons.add(new Person(tokens[0], ad, an, cr, fi));
+                persons.add(new Person(l, ad, an, cr, fi));
             }
         } catch (FileNotFoundException ex) {
             System.out.println("Could not load file");
         }catch(Exception e){
-        
+            System.out.println(e);
         }
     }
     
