@@ -17,6 +17,7 @@ public class MainFrame extends javax.swing.JFrame {
         this.model = new DefaultListModel();
         personList.setModel(model);
         control.loadFromFile();
+        helpText.setText("File succesfully Loaded");
         refreshList();
     }
     
@@ -76,7 +77,7 @@ public class MainFrame extends javax.swing.JFrame {
         deleteButton = new javax.swing.JButton();
         helpText = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        viewerTextArea = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -366,6 +367,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        deleteBox.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                deleteBoxWindowActivated(evt);
+            }
+        });
+
         jLabel16.setText("Are you sure you wish to delete this person?");
 
         yesDelete.setText("Yes");
@@ -405,6 +412,11 @@ public class MainFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(520, 360));
         setName("proManFrame"); // NOI18N
 
+        personList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                personListMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(personList);
 
         createButton.setText("Create Person");
@@ -415,14 +427,25 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         editButton.setText("Edit Person");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         deleteButton.setText("Delete Person");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
 
         helpText.setText("Help is displayed in this label.");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        viewerTextArea.setEditable(false);
+        viewerTextArea.setColumns(20);
+        viewerTextArea.setRows(5);
+        jScrollPane3.setViewportView(viewerTextArea);
 
         jLabel13.setText("Applicants");
 
@@ -545,8 +568,42 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
-        
+        createFrame.pack();
+        createFrame.setLocationRelativeTo(null);
+        createFrame.setVisible(true);
     }//GEN-LAST:event_createButtonActionPerformed
+
+    private void personListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personListMouseClicked
+        
+        Object selected = personList.getSelectedValue();
+        Person p = ((Person)selected);
+        viewerTextArea.setText(p.showPerson());
+    }//GEN-LAST:event_personListMouseClicked
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        editFrame.pack();
+        editFrame.setLocationRelativeTo(null);
+        editFrame.setVisible(true);
+    }//GEN-LAST:event_editButtonActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO add your handling code here:
+        if(personList.getSelectedValue()!=null){
+        deleteBox.pack();
+        deleteBox.setLocationRelativeTo(null);
+        deleteBox.setVisible(true);
+        }else{
+            helpText.setText("No person selected");
+        }
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void deleteBoxWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_deleteBoxWindowActivated
+        // TODO add your handling code here:
+        Object selected = personList.getSelectedValue();
+        Person p = ((Person)selected);
+        jLabel16.setText("Are you sure you wish to delete "+p.toString()+"?");
+    }//GEN-LAST:event_deleteBoxWindowActivated
 
     /**
      * @param args the command line arguments
@@ -639,7 +696,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JMenuItem loadMenuItem;
     private javax.swing.JButton newPersonCancel;
@@ -652,6 +708,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JDialog quitBox;
     private javax.swing.JMenuItem quitMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JTextArea viewerTextArea;
     private javax.swing.JButton yesButton;
     private javax.swing.JButton yesDelete;
     // End of variables declaration//GEN-END:variables

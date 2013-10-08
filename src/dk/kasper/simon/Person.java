@@ -61,6 +61,22 @@ public class Person {
         return finisher;
     }
     
+    
+    public String showPerson() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Name: \t");
+        sb.append(name).append("\n");
+        sb.append("administrator: \t");
+        sb.append(admin).append("\n");
+        sb.append("Analyst: \t");
+        sb.append(analyst).append("\n");
+        sb.append("Creative: \t");
+        sb.append(creative).append("\n");
+        sb.append("Finisher: \t");
+        sb.append(finisher);
+        return sb.toString();
+    }
+    
     public String toFile(){
         String person = name+","+admin+","+analyst+","+creative+","+finisher;
         return person;

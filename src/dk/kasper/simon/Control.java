@@ -112,21 +112,6 @@ public class Control {
         return false;
     }
 
-    public String showPerson(Person person) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Name: \t");
-        sb.append(person.toString()).append("\n");
-        sb.append("administrator: \t");
-        sb.append(person.getAdmin()).append("\n");
-        sb.append("Analyst: \t");
-        sb.append(person.getAnalyst()).append("\n");
-        sb.append("Creative: \t");
-        sb.append(person.getCreative()).append("\n");
-        sb.append("Finisher: \t");
-        sb.append(person.getFinisher());
-        return sb.toString();
-    }
-
     private void initialSetup() {
         StringBuilder sb = new StringBuilder();
         sb.append(System.getProperty("user.dir"));
