@@ -31,21 +31,6 @@ public class Control {
 
     public Person createPerson(String n, int a, int b, int c, int d) {
         Person person = new Person(n, a, b, c, d);
-
-        try {
-            pw = new PrintWriter(new FileWriter("name.txt"));
-            
-            
-        } catch (FileNotFoundException ex) {
-            
-        } catch (Exception e){
-            
-        }
-
-
-
-
-
         persons.add(person);
         return person;
     }
@@ -60,9 +45,21 @@ public class Control {
 
     public void loadFromFile() {
         
+        
+        
+        
     }
     
     
+    public void saveToFile(){
+        
+        
+    }
+    
+    
+    public String showPerson(Person person){
+        return person.toString();
+    }
     
     
     private void initialSetup() {
