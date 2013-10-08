@@ -27,6 +27,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton3 = new javax.swing.JButton();
+        createFrame = new javax.swing.JFrame();
+        jTextField1 = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         createButton = new javax.swing.JButton();
@@ -47,6 +51,39 @@ public class MainFrame extends javax.swing.JFrame {
 
         jButton3.setText("jButton3");
 
+        createFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        createFrame.setTitle("Create a person");
+        createFrame.setPreferredSize(new java.awt.Dimension(360, 360));
+
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout createFrameLayout = new javax.swing.GroupLayout(createFrame.getContentPane());
+        createFrame.getContentPane().setLayout(createFrameLayout);
+        createFrameLayout.setHorizontalGroup(
+            createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(createFrameLayout.createSequentialGroup()
+                .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(createFrameLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(createFrameLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(125, Short.MAX_VALUE))
+        );
+        createFrameLayout.setVerticalGroup(
+            createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(createFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(269, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Team Manager");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -61,13 +98,22 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         createButton.setText("Create Person");
+        createButton.setToolTipText("Creates a new person, who is added to the list.");
+        createButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                createButtonMouseEntered(evt);
+            }
+        });
 
         editButton.setText("Edit Person");
+        editButton.setToolTipText("Edits the chosen person.");
 
         deleteButton.setText("Delete Person");
+        deleteButton.setToolTipText("Deletes a person, and removes him from the list.");
 
         helpText.setText("Help is displayed in this label.");
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane3.setViewportView(jTextArea1);
@@ -120,7 +166,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(editButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(deleteButton)
-                                .addGap(0, 3, Short.MAX_VALUE))
+                                .addGap(0, 43, Short.MAX_VALUE))
                             .addComponent(jScrollPane3)))
                     .addComponent(helpText))
                 .addContainerGap())
@@ -149,6 +195,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void createButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createButtonMouseEntered
+        
+    }//GEN-LAST:event_createButtonMouseEntered
 
     /**
      * @param args the command line arguments
@@ -186,12 +236,14 @@ public class MainFrame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createButton;
+    private javax.swing.JFrame createFrame;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JLabel helpText;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JList jList1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -202,6 +254,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
