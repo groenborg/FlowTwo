@@ -61,9 +61,6 @@ public class Person {
         return finisher;
     }
     
-    
-    
-    
     public String toFile(){
         String person = name+","+admin+","+analyst+","+creative+","+finisher;
         return person;
@@ -75,5 +72,4 @@ public class Person {
         sb.append(this.name);
         return sb.toString();
     }
-    
 }

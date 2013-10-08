@@ -42,6 +42,7 @@ public class Control {
         person.setAnalyst(b);
         person.setCreative(c);
         person.setFinisher(d);
+        this.saveState = true;
         return person;
     }
     
@@ -70,7 +71,6 @@ public class Control {
             System.out.println("Could not load file");
         }
     }
-    
     
     public void saveToFile() {
         try {
