@@ -83,15 +83,12 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        loadMenuItem = new javax.swing.JMenuItem();
+        saveMenuItem = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        quitMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-
-        createFrame.setPreferredSize(new java.awt.Dimension(343, 281));
+        aboutMenuItem = new javax.swing.JMenuItem();
 
         jLabel1.setText("Fill in the fields with the persons name, and the appropriate scores.");
 
@@ -187,8 +184,6 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(newPersonCancel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        editFrame.setPreferredSize(new java.awt.Dimension(343, 281));
 
         jLabel7.setText("Edit the fields to change the persons name or scores.");
 
@@ -411,6 +406,7 @@ public class MainFrame extends javax.swing.JFrame {
         setTitle("Team Manager");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(520, 360));
+        setName("proManFrame"); // NOI18N
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -437,35 +433,32 @@ public class MainFrame extends javax.swing.JFrame {
 
         fileMenu.setText("File");
 
-        jMenuItem1.setText("Create new list");
-        fileMenu.add(jMenuItem1);
-
-        jMenuItem2.setText("Load list");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        loadMenuItem.setText("Load list");
+        loadMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                loadMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(jMenuItem2);
+        fileMenu.add(loadMenuItem);
 
-        jMenuItem3.setText("Save list");
-        fileMenu.add(jMenuItem3);
+        saveMenuItem.setText("Save list");
+        fileMenu.add(saveMenuItem);
         fileMenu.add(jSeparator1);
 
-        jMenuItem4.setText("Quit program");
-        fileMenu.add(jMenuItem4);
+        quitMenuItem.setText("Quit program");
+        fileMenu.add(quitMenuItem);
 
         jMenuBar1.add(fileMenu);
 
         helpMenu.setText("Help");
 
-        jMenuItem5.setText("About");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        aboutMenuItem.setText("About");
+        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                aboutMenuItemActionPerformed(evt);
             }
         });
-        helpMenu.add(jMenuItem5);
+        helpMenu.add(aboutMenuItem);
 
         jMenuBar1.add(helpMenu);
 
@@ -525,9 +518,9 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void loadMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadMenuItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_loadMenuItemActionPerformed
 
     private void createFinFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createFinFieldActionPerformed
         // TODO add your handling code here:
@@ -537,10 +530,11 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_editFinFieldActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
         aboutFrame.pack();
+        aboutFrame.setLocationRelativeTo(null);
         aboutFrame.setVisible(true);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void aboutCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutCloseButtonActionPerformed
         aboutFrame.dispose();
@@ -587,6 +581,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutCloseButton;
     private javax.swing.JFrame aboutFrame;
+    private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField createAdminField;
     private javax.swing.JTextField createAnalField;
@@ -625,11 +620,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList jList1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -640,6 +630,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JMenuItem loadMenuItem;
     private javax.swing.JButton newPersonCancel;
     private javax.swing.JButton newPersonCancel1;
     private javax.swing.JButton newPersonCreate;
@@ -647,6 +638,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton noButton;
     private javax.swing.JButton noDelete;
     private javax.swing.JDialog quitBox;
+    private javax.swing.JMenuItem quitMenuItem;
+    private javax.swing.JMenuItem saveMenuItem;
     private javax.swing.JButton yesButton;
     private javax.swing.JButton yesDelete;
     // End of variables declaration//GEN-END:variables
