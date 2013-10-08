@@ -21,27 +21,6 @@ public class Person {
         this.finisher = finisher;
         this.name = name;   
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAdmin() {
-        return admin;
-    }
-
-    public int getAnalyst() {
-        return analyst;
-    }
-
-    public int getCreative() {
-        return creative;
-    }
-
-    public int getFinisher() {
-        return finisher;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -65,6 +44,15 @@ public class Person {
     public void setFinisher(int finisher) {
         this.finisher = finisher;
     }
+    
+    
+    
+    
+    public String toFile(){
+        String person = name+","+admin+","+analyst+","+creative+","+finisher;
+        return person;
+    }
+    
     
     @Override
     public String toString(){

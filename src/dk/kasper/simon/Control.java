@@ -27,8 +27,6 @@ public class Control {
         initialSetup();
     }
 
-    
-
     public Person createPerson(String n, int a, int b, int c, int d) {
         Person person = new Person(n, a, b, c, d);
         persons.add(person);
@@ -44,24 +42,24 @@ public class Control {
     }
 
     public void loadFromFile() {
-        
-        
-        
-        
     }
-    
-    
-    public void saveToFile(){
-        
-        
+
+    public void saveToFile() {
+
+        try {
+            pw = new PrintWriter(path);
+            for (int x = 0; x < persons.size(); ++x) {
+                pw.write(persons.get(x).toFile());
+            }
+        } catch (Exception e) {
+            System.out.println("Error in writing to file");
+        }
     }
-    
-    
-    public String showPerson(Person person){
+
+    public String showPerson(Person person) {
         return person.toString();
     }
-    
-    
+
     private void initialSetup() {
         StringBuilder sb = new StringBuilder();
         sb.append(System.getProperty("user.dir"));
@@ -83,6 +81,8 @@ public class Control {
             sb.append("/person.txt");
             file = new File(sb.toString());
             file.createNewFile();
+            this.path = sb.toString();
+
         } catch (Exception e) {
             System.out.println("Could not create file");
         }
