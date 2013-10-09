@@ -65,7 +65,7 @@ public class Person {
         StringBuilder sb = new StringBuilder();
         sb.append("Name: \t");
         sb.append(name).append("\n");
-        sb.append("administrator: \t");
+        sb.append("Administrator: \t");
         sb.append(admin).append("\n");
         sb.append("Analyst: \t");
         sb.append(analyst).append("\n");

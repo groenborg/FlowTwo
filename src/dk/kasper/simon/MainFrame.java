@@ -774,9 +774,6 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
 
-    public void editFrame() {
-    }
-
     public void openWindows(JFrame v) {
         v.pack();
         v.setLocationRelativeTo(null);

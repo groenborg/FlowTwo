@@ -1,5 +1,2 @@
 Kasper,1,2,3,4
 Simon,1,5,3,4
-Julie,1,2,9,4
-Harald,1,4,3,4
-Niels,4,2,8,4
