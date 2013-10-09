@@ -6,7 +6,6 @@ package dk.kasper.simon;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -18,8 +17,7 @@ import javax.swing.JLabel;
  */
 public class Control {
 
-    private static Scanner fileScan, inputScan;
-    private FileWriter out;
+    private static Scanner fileScan;
     private PrintWriter pw;
     private ArrayList<Person> persons;
     private String path;
@@ -32,13 +30,12 @@ public class Control {
     }
 
     public boolean createPerson(String n, int a, int b, int c, int d, JLabel l) {
-            Person person = new Person(n, a, b, c, d);
-            this.persons.add(person);
-            l.setText("Person created succesfully");
-            this.saveState = true;
-            return false;
-        }
-    
+        Person person = new Person(n, a, b, c, d);
+        this.persons.add(person);
+        l.setText("Person created succesfully");
+        this.saveState = true;
+        return false;
+    }
 
     public boolean getSaveState() {
         return this.saveState;
@@ -51,9 +48,9 @@ public class Control {
     public int arraySize() {
         return persons.size();
     }
-    
-    public boolean checkInputs(String n, int a, int b, int c, int d, JLabel l){
-    if (a <= 0 || b <= 0 || c <= 0 || d <= 0) {
+
+    public boolean checkInputs(String n, int a, int b, int c, int d, JLabel l) {
+        if (a <= 0 || b <= 0 || c <= 0 || d <= 0) {
             l.setText("Assigned values must be above 0");
             return true;
         } else if ((a + b + c + d) >= 100) {
@@ -66,17 +63,16 @@ public class Control {
             return false;
         }
     }
-    
-    public boolean parserTest(String a, String b, String c, String d, String name){
-        if(a.matches("\\d+") && b.matches("\\d+") && c.matches("\\d+") && d.matches("\\d+")){
-           if(name.matches("\\S")){
-            return true;
-           }
+
+    public boolean parserTest(String a, String b, String c, String d, String name) {
+        if (a.matches("\\d+") && b.matches("\\d+") && c.matches("\\d+") && d.matches("\\d+")) {
+            if (name.matches("\\S")) {
+                return true;
+            }
         }
         return false;
     }
-    
-    
+
     public void deletePerson(Person p, JLabel l) {
         for (int x = 0; x < persons.size(); ++x) {
             if (persons.get(x).equals(p)) {
@@ -86,7 +82,6 @@ public class Control {
             }
         }
     }
-
 
     public void loadFromFile() {
         try {
@@ -103,9 +98,7 @@ public class Control {
                 persons.add(new Person(l, ad, an, cr, fi));
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("Could not load file.");
         } catch (Exception e) {
-            System.out.println("Unknown error: " + e);
         }
     }
 
@@ -154,7 +147,6 @@ public class Control {
                 this.path = dir;
             }
         } catch (Exception e) {
-            System.out.println("Could not create directory");
         }
         try {
             sb.append("/person.txt");
@@ -162,7 +154,6 @@ public class Control {
             file.createNewFile();
             this.path = sb.toString();
         } catch (Exception e) {
-            System.out.println("Could not create file");
         }
     }
 }
