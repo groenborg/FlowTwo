@@ -622,6 +622,11 @@ public class MainFrame extends javax.swing.JFrame {
         quitBox.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
+        createAdminField.setText("");
+        createAnalField.setText("");
+        createCreaField.setText("");
+        createNameField.setText("");
+        createFinField.setText("");
         openWindows(createFrame);
     }//GEN-LAST:event_createButtonActionPerformed
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
@@ -690,26 +695,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_newPersonCancelActionPerformed
 
     private void newPersonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonCreateActionPerformed
-        // TODO add your handling code here:
-        String name = createNameField.getText();
-        String da = createAdminField.getText();
-        String na = createAnalField.getText();
-        String rc = createCreaField.getText();
-        String fin = createFinField.getText();
-        if (control.parserTest(da, na, rc, fin, name)) {
-            int ad = Integer.parseInt(da);
-            int an = Integer.parseInt(na);
-            int cr = Integer.parseInt(rc);
-            int fi = Integer.parseInt(fin);
-            if (!control.checkInputs(name, ad, an, cr, fi, helpText)) {
-                control.createPerson(name, ad, an, cr, fi, helpText);
-                refreshList();
-                createFrame.dispose();
-            }
-        }
-        else{
-        helpText.setText("Attributes take numbers, Name takes at leat one charcter");
-        }
+        newPerson();
     }//GEN-LAST:event_newPersonCreateActionPerformed
 
     private void editPersonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPersonCancelActionPerformed
@@ -775,6 +761,29 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
 
+    public void newPerson(){
+    String name = createNameField.getText();
+        String da = createAdminField.getText();
+        String na = createAnalField.getText();
+        String rc = createCreaField.getText();
+        String fin = createFinField.getText();
+        if (control.parserTest(da, na, rc, fin, name)) {
+            int ad = Integer.parseInt(da);
+            int an = Integer.parseInt(na);
+            int cr = Integer.parseInt(rc);
+            int fi = Integer.parseInt(fin);
+            if (!control.checkInputs(name, ad, an, cr, fi, helpText)) {
+                control.createPerson(name, ad, an, cr, fi, helpText);
+                refreshList();
+                createFrame.dispose();
+            }
+        }
+        else{
+        helpText.setText("Attributes take numbers, Name takes at leat one charcter");
+        }
+    
+    }
+    
     public void openWindows(JFrame v) {
         v.pack();
         v.setLocationRelativeTo(null);

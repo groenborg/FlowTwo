@@ -66,7 +66,7 @@ public class Control {
 
     public boolean parserTest(String a, String b, String c, String d, String name) {
         if (a.matches("\\d+") && b.matches("\\d+") && c.matches("\\d+") && d.matches("\\d+")) {
-            if (name.matches("\\S")) {
+            if (name.matches("\\S+")) {
                 return true;
             }
         }
