@@ -79,7 +79,7 @@ public class Control {
             if (persons.get(x).equals(p)) {
                 this.saveState = true;
                 persons.remove(x);
-                l.setText(persons.get(x).toString()+"deleted from list");
+                l.setText("Person deleted from list");
             }
         }
     }
