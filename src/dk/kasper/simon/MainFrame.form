@@ -221,9 +221,9 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="newPersonCreate1" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="editPersonCreate" min="-2" pref="100" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="newPersonCancel1" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="editPersonCancel" min="-2" pref="100" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -265,8 +265,8 @@
                   <Component id="jSeparator5" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="newPersonCreate1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="newPersonCancel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="editPersonCreate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="editPersonCancel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -319,18 +319,21 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editFinFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="newPersonCreate1">
+        <Component class="javax.swing.JButton" name="editPersonCreate">
           <Properties>
             <Property name="text" type="java.lang.String" value="Apply"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newPersonCreate1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editPersonCreateActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="newPersonCancel1">
+        <Component class="javax.swing.JButton" name="editPersonCancel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancel"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editPersonCancelActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator5">
         </Component>
@@ -453,11 +456,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Yes"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yesButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="noButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="No"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cancelButton">
           <Properties>
@@ -517,6 +526,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Yes"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yesDeleteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="noDelete">
           <Properties>

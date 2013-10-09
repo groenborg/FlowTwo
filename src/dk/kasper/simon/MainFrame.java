@@ -53,8 +53,8 @@ public class MainFrame extends javax.swing.JFrame {
         editCreaField = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         editFinField = new javax.swing.JTextField();
-        newPersonCreate1 = new javax.swing.JButton();
-        newPersonCancel1 = new javax.swing.JButton();
+        editPersonCreate = new javax.swing.JButton();
+        editPersonCancel = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
         aboutFrame = new javax.swing.JFrame();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -223,14 +223,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        newPersonCreate1.setText("Apply");
-        newPersonCreate1.addActionListener(new java.awt.event.ActionListener() {
+        editPersonCreate.setText("Apply");
+        editPersonCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newPersonCreate1ActionPerformed(evt);
+                editPersonCreateActionPerformed(evt);
             }
         });
 
-        newPersonCancel1.setText("Cancel");
+        editPersonCancel.setText("Cancel");
+        editPersonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editPersonCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout editFrameLayout = new javax.swing.GroupLayout(editFrame.getContentPane());
         editFrame.getContentPane().setLayout(editFrameLayout);
@@ -269,9 +274,9 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(editFrameLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(newPersonCreate1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editPersonCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(newPersonCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editPersonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40))))
         );
         editFrameLayout.setVerticalGroup(
@@ -305,8 +310,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(newPersonCreate1)
-                    .addComponent(newPersonCancel1))
+                    .addComponent(editPersonCreate)
+                    .addComponent(editPersonCancel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -354,8 +359,18 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel15.setText("Changes have been made to the list. Do you want to save the new list?");
 
         yesButton.setText("Yes");
+        yesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yesButtonActionPerformed(evt);
+            }
+        });
 
         noButton.setText("No");
+        noButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -404,6 +419,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel16.setText("Are you sure you wish to delete this person?");
 
         yesDelete.setText("Yes");
+        yesDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yesDeleteActionPerformed(evt);
+            }
+        });
 
         noDelete.setText("No");
 
@@ -597,7 +617,6 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutCloseButtonActionPerformed
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         quitBox.dispose();
-
     }//GEN-LAST:event_cancelButtonActionPerformed
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         openWindows(createFrame);
@@ -640,7 +659,7 @@ public class MainFrame extends javax.swing.JFrame {
         editFinField.setText("" + p.getFinisher());
         this.tmp = p;
     }//GEN-LAST:event_editFrameWindowActivated
-    private void newPersonCreate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonCreate1ActionPerformed
+    private void editPersonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPersonCreateActionPerformed
         String name = editNameField.getText();
         int ad = Integer.parseInt(editAdminField.getText());
         int an = Integer.parseInt(editAnalField.getText());
@@ -649,7 +668,7 @@ public class MainFrame extends javax.swing.JFrame {
         control.editPerson(name, ad, an, cr, fi, tmp);
 
 
-    }//GEN-LAST:event_newPersonCreate1ActionPerformed
+    }//GEN-LAST:event_editPersonCreateActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
         control.saveToFile(helpText);
@@ -678,6 +697,25 @@ public class MainFrame extends javax.swing.JFrame {
         control.createPerson(name, an, fi, cr, ad);
         refreshList();
     }//GEN-LAST:event_newPersonCreateActionPerformed
+
+    private void editPersonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPersonCancelActionPerformed
+        createFrame.dispose();
+    }//GEN-LAST:event_editPersonCancelActionPerformed
+
+    private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
+        control.saveToFile(helpText);
+        System.exit(0);
+    }//GEN-LAST:event_yesButtonActionPerformed
+
+    private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_noButtonActionPerformed
+
+    private void yesDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesDeleteActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_yesDeleteActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -748,6 +786,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField editFinField;
     private javax.swing.JFrame editFrame;
     private javax.swing.JTextField editNameField;
+    private javax.swing.JButton editPersonCancel;
+    private javax.swing.JButton editPersonCreate;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JLabel helpText;
@@ -779,9 +819,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JMenuItem loadMenuItem;
     private javax.swing.JButton newPersonCancel;
-    private javax.swing.JButton newPersonCancel1;
     private javax.swing.JButton newPersonCreate;
-    private javax.swing.JButton newPersonCreate1;
     private javax.swing.JButton noButton;
     private javax.swing.JButton noDelete;
     private javax.swing.JList personList;
