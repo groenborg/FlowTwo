@@ -730,6 +730,8 @@ public class MainFrame extends javax.swing.JFrame {
         Object selected = personList.getSelectedValue();
         Person p = (Person) selected;
         control.deletePerson(p, helpText);
+        refreshList();
+        deleteBox.dispose();
     }//GEN-LAST:event_yesDeleteActionPerformed
 
     private void noDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noDeleteActionPerformed
@@ -788,6 +790,7 @@ public class MainFrame extends javax.swing.JFrame {
             model.addElement(control.giveArray(x));
         }
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutCloseButton;
     private javax.swing.JFrame aboutFrame;
