@@ -709,8 +709,11 @@ public class MainFrame extends javax.swing.JFrame {
         int an = Integer.parseInt(createAnalField.getText());
         int cr = Integer.parseInt(createCreaField.getText());
         int fi = Integer.parseInt(createFinField.getText());
-        control.createPerson(name, an, fi, cr, ad, helpText);
-        refreshList();
+        if(!control.createPerson(name, an, fi, cr, ad, helpText)){
+            refreshList();
+            createFrame.dispose();
+        }
+        
     }//GEN-LAST:event_newPersonCreateActionPerformed
 
     private void editPersonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPersonCancelActionPerformed

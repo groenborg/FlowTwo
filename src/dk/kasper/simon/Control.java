@@ -31,39 +31,37 @@ public class Control {
         initialSetup();
     }
 
-    public void createPerson(String n, int a, int b, int c, int d, JLabel l) {
-        
-        boolean check = true;
-        while(check){
-            
-            if(a <=0|| b<=0 ||c<=0|| d<=0){
-                l.setText("Assigned values must be above 0");
-            }else if((a+b+c+d) >= 100){
-                l.setText("The total score must not be over 100");
-            }else if(n == null){
-                l.setText("Fill in name!");
-            }else {
-                check = false;
-            }
+    public boolean createPerson(String n, int a, int b, int c, int d, JLabel l) {
+        if (a <= 0 || b <= 0 || c <= 0 || d <= 0) {
+            l.setText("Assigned values must be above 0");
+            return true;
+        } else if ((a + b + c + d) >= 100) {
+            l.setText("The total score must not be over 100");
+            return true;
+        } else if (n == null) {
+            l.setText("Fill in name!");
+            return true;
+        } else {
+            Person person = new Person(n, a, b, c, d);
+            this.persons.add(person);
+            this.saveState = true;
+            return false;
         }
-        Person person = new Person(n, a, b, c, d);
-        persons.add(person);
-        this.saveState = true;
     }
-    
-    public boolean getSaveState(){
-    return this.saveState;
+
+    public boolean getSaveState() {
+        return this.saveState;
     }
-    
-    public Person giveArray(int x){
+
+    public Person giveArray(int x) {
         return persons.get(x);
     }
-    
-    public int arraySize(){
+
+    public int arraySize() {
         return persons.size();
     }
-    
-    public Person editPerson(String n, int a, int b, int c, int d, Person person){
+
+    public Person editPerson(String n, int a, int b, int c, int d, Person person) {
         person.setName(n);
         person.setAdmin(a);
         person.setAnalyst(b);
@@ -72,7 +70,7 @@ public class Control {
         this.saveState = true;
         return person;
     }
-    
+
     public void deletePerson(Person p, JLabel l) {
         for (int x = 0; x < persons.size(); ++x) {
             if (persons.get(x).equals(p)) {
@@ -83,12 +81,9 @@ public class Control {
         }
     }
 
-    public void sort(){
-    
-    
+    public void sort() {
     }
-    
-    
+
     public void loadFromFile() {
         try {
             this.persons = new ArrayList();
@@ -105,11 +100,11 @@ public class Control {
             }
         } catch (FileNotFoundException ex) {
             System.out.println("Could not load file");
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
-    
+
     public void saveToFile(JLabel text) {
         try {
             pw = new PrintWriter(path);
