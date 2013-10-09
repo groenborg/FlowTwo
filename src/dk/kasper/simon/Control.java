@@ -92,6 +92,7 @@ public class Control {
     
     public void loadFromFile() {
         try {
+            this.persons = new ArrayList();
             fileScan = new Scanner(new File(path));
             while (fileScan.hasNext()) {
                 String tmp = fileScan.next();
