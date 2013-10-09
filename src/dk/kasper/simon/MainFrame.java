@@ -463,6 +463,7 @@ public class MainFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(520, 360));
         setName("proManFrame"); // NOI18N
 
+        personList.setToolTipText("List of applicants");
         personList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 personListMousePressed(evt);
@@ -471,6 +472,7 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(personList);
 
         createButton.setText("Create Person");
+        createButton.setToolTipText("Create a new person");
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createButtonActionPerformed(evt);
@@ -478,6 +480,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         editButton.setText("Edit Person");
+        editButton.setToolTipText("Edit the selected person");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -485,6 +488,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         deleteButton.setText("Delete Person");
+        deleteButton.setToolTipText("Delete the selected person");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
@@ -492,10 +496,12 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         helpText.setText("Help is displayed in this label.");
+        helpText.setToolTipText("Helpful information displayed here");
 
         viewerTextArea.setEditable(false);
         viewerTextArea.setColumns(20);
         viewerTextArea.setRows(5);
+        viewerTextArea.setToolTipText("View your selected person");
         jScrollPane3.setViewportView(viewerTextArea);
 
         jLabel13.setText("Applicants");
@@ -503,9 +509,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel14.setText("Viewer");
 
         fileMenu.setText("File");
+        fileMenu.setToolTipText("File menu");
 
         loadMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         loadMenuItem.setText("Load list");
+        loadMenuItem.setToolTipText("Load the name list");
         loadMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loadMenuItemActionPerformed(evt);
@@ -515,6 +523,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         saveMenuItem.setText("Save list");
+        saveMenuItem.setToolTipText("Save your work");
         saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveMenuItemActionPerformed(evt);
@@ -525,6 +534,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         quitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
         quitMenuItem.setText("Quit program");
+        quitMenuItem.setToolTipText("Exit the program safely");
         quitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quitMenuItemActionPerformed(evt);
@@ -535,9 +545,11 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuBar1.add(fileMenu);
 
         helpMenu.setText("Help");
+        helpMenu.setToolTipText("Help menu");
 
         aboutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
         aboutMenuItem.setText("About");
+        aboutMenuItem.setToolTipText("Look closely");
         aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboutMenuItemActionPerformed(evt);
@@ -670,9 +682,10 @@ public class MainFrame extends javax.swing.JFrame {
         int fi = Integer.parseInt(editFinField.getText());
         if (!control.checkInputs(name, ad, an, cr, fi, helpText)) {
             control.deletePerson(tmp, helpText);
-            control.createPerson(name, ad, an, cr, fi, helpText);
+            control.createPerson(name, ad, an, cr, fi);
             refreshList();
             editFrame.dispose();
+            helpText.setText("Person was edited");
             viewerTextArea.setText("");
         }
     }//GEN-LAST:event_editPersonCreateActionPerformed
@@ -767,21 +780,18 @@ public class MainFrame extends javax.swing.JFrame {
         String na = createAnalField.getText();
         String rc = createCreaField.getText();
         String fin = createFinField.getText();
-        if (control.parserTest(da, na, rc, fin, name)) {
+        if (control.parserTest(da, na, rc, fin, name, helpText)) {
             int ad = Integer.parseInt(da);
             int an = Integer.parseInt(na);
             int cr = Integer.parseInt(rc);
             int fi = Integer.parseInt(fin);
             if (!control.checkInputs(name, ad, an, cr, fi, helpText)) {
-                control.createPerson(name, ad, an, cr, fi, helpText);
+                control.createPerson(name, ad, an, cr, fi);
                 refreshList();
+                helpText.setText("Person created");
                 createFrame.dispose();
             }
         }
-        else{
-        helpText.setText("Attributes take numbers, Name takes at leat one charcter");
-        }
-    
     }
     
     public void openWindows(JFrame v) {

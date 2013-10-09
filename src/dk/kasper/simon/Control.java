@@ -29,10 +29,9 @@ public class Control {
         initialSetup();
     }
 
-    public boolean createPerson(String n, int a, int b, int c, int d, JLabel l) {
+    public boolean createPerson(String n, int a, int b, int c, int d) {
         Person person = new Person(n, a, b, c, d);
         this.persons.add(person);
-        l.setText("Person created succesfully");
         this.saveState = true;
         return false;
     }
@@ -64,12 +63,13 @@ public class Control {
         }
     }
 
-    public boolean parserTest(String a, String b, String c, String d, String name) {
+    public boolean parserTest(String a, String b, String c, String d, String name, JLabel l) {
         if (a.matches("\\d+") && b.matches("\\d+") && c.matches("\\d+") && d.matches("\\d+")) {
             if (name.matches("\\S+")) {
                 return true;
             }
         }
+        l.setText("Insert valid name, and make sure all fields only have numbers");
         return false;
     }
 
