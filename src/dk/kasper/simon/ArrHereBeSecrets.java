@@ -4,6 +4,9 @@
  */
 package dk.kasper.simon;
 
+
+import javax.swing.JTextField;
+
 /**
  *
  * @author Simon
@@ -27,15 +30,17 @@ public class ArrHereBeSecrets {
     
     
     
-    public ArrHereBeSecrets(String name){
+    public ArrHereBeSecrets(){
         
         
         
     }
     
     
-    public void dreadPirate(){
-    
+    public void dreadPirate(JTextField v){
+        
+        
+        
     }
     
     

@@ -6,7 +6,7 @@ package dk.kasper.simon;
  *
  *      @author Simon & Kasper
  *
- *      Version 0.3.0.4
+ *      Version 0.4.3.0
  * 
  */
 public class FlowTwo {

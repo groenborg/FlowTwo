@@ -1,16 +1,15 @@
-
 package dk.kasper.simon;
+
 import javax.swing.DefaultListModel;
-
-
-
+import javax.swing.JFrame;
 
 public class MainFrame extends javax.swing.JFrame {
+
     private Control control;
     private DefaultListModel model;
     private Person tmp;
     
-    
+
     public MainFrame() {
         initComponents();
         control = new Control();
@@ -19,8 +18,10 @@ public class MainFrame extends javax.swing.JFrame {
         control.loadFromFile();
         helpText.setText("File succesfully Loaded");
         refreshList();
+        
+
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -548,89 +549,70 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
     private void loadMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadMenuItemActionPerformed
-        
+
         control.loadFromFile();
     }//GEN-LAST:event_loadMenuItemActionPerformed
-
     private void createFinFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createFinFieldActionPerformed
-        
-        
     }//GEN-LAST:event_createFinFieldActionPerformed
-
     private void editFinFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFinFieldActionPerformed
-        
-        
     }//GEN-LAST:event_editFinFieldActionPerformed
-
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        aboutFrame.pack();
-        aboutFrame.setLocationRelativeTo(null);
-        aboutFrame.setVisible(true);
+        openWindows(aboutFrame);
     }//GEN-LAST:event_aboutMenuItemActionPerformed
-
     private void aboutCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutCloseButtonActionPerformed
         aboutFrame.dispose();
-    }//GEN-LAST:event_aboutCloseButtonActionPerformed
 
+    }//GEN-LAST:event_aboutCloseButtonActionPerformed
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         quitBox.dispose();
+
     }//GEN-LAST:event_cancelButtonActionPerformed
-
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        createFrame.pack();
-        createFrame.setLocationRelativeTo(null);
-        createFrame.setVisible(true);
+        openWindows(createFrame);
     }//GEN-LAST:event_createButtonActionPerformed
-
     private void personListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personListMouseClicked
-        
+
         Object selected = personList.getSelectedValue();
-        Person p = ((Person)selected);
+        Person p = ((Person) selected);
         viewerTextArea.setText(p.showPerson());
     }//GEN-LAST:event_personListMouseClicked
-
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        editFrame.pack();
-        editFrame.setLocationRelativeTo(null);
-        editFrame.setVisible(true);
+        openWindows(editFrame);
     }//GEN-LAST:event_editButtonActionPerformed
-
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        if(personList.getSelectedValue()!=null){
-        deleteBox.pack();
-        deleteBox.setLocationRelativeTo(null);
-        deleteBox.setVisible(true);
-        }else{
+        if (personList.getSelectedValue() != null) {
+            deleteBox.pack();
+            deleteBox.setLocationRelativeTo(null);
+            deleteBox.setVisible(true);
+        } else {
             helpText.setText("No person selected");
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
-
     private void deleteBoxWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_deleteBoxWindowActivated
         Object selected = personList.getSelectedValue();
-        Person p = ((Person)selected);
-        jLabel16.setText("Are you sure you wish to delete "+p.toString()+"?");
+        Person p = ((Person) selected);
+        jLabel16.setText("Are you sure you wish to delete " + p.toString() + "?");
     }//GEN-LAST:event_deleteBoxWindowActivated
-
     private void editFrameWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_editFrameWindowActivated
         Object selected = personList.getSelectedValue();
-        Person p = ((Person)selected);
+        Person p = ((Person) selected);
         editNameField.setText(p.toString());
-        editAdminField.setText(""+p.getAdmin());
-        editAnalField.setText(""+p.getAnalyst());
-        editCreaField.setText(""+p.getCreative());
-        editFinField.setText(""+p.getFinisher());
+        editAdminField.setText("" + p.getAdmin());
+        editAnalField.setText("" + p.getAnalyst());
+        editCreaField.setText("" + p.getCreative());
+        editFinField.setText("" + p.getFinisher());
         this.tmp = p;
     }//GEN-LAST:event_editFrameWindowActivated
-
     private void newPersonCreate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonCreate1ActionPerformed
         String name = editNameField.getText();
         int ad = Integer.parseInt(editAdminField.getText());
         int an = Integer.parseInt(editAnalField.getText());
         int cr = Integer.parseInt(editCreaField.getText());
         int fi = Integer.parseInt(editFinField.getText());
-        control.editPerson(name, ad, an, cr, fi,tmp);
+        control.editPerson(name, ad, an, cr, fi, tmp);
+        
+
     }//GEN-LAST:event_newPersonCreate1ActionPerformed
 
     /**
@@ -667,20 +649,21 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-    
-    
-    public void editFrame(){
-    
+
+    public void editFrame() {
     }
-    
-    
-    
-    private void refreshList(){
-        for(int x = 0; x<control.arraySize();++x){
+
+    public void openWindows(JFrame v) {
+        v.pack();
+        v.setLocationRelativeTo(null);
+        v.setVisible(true);
+    }
+
+    private void refreshList() {
+        for (int x = 0; x < control.arraySize(); ++x) {
             model.addElement(control.giveArray(x));
         }
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutCloseButton;
     private javax.swing.JFrame aboutFrame;
