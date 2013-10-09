@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 import javax.swing.JLabel;
 
@@ -73,15 +74,22 @@ public class Control {
         return person;
     }
     
-    public void deletePerson(Person name) {
+    public void deletePerson(Person p, JLabel l) {
         for (int x = 0; x < persons.size(); ++x) {
-            if (persons.get(x).equals(name)) {
+            if (persons.get(x).equals(p)) {
                 this.saveState = true;
                 persons.remove(x);
+                l.setText(persons.get(x).toString()+"deleted from list");
             }
         }
     }
 
+    public void sort(){
+    //Collections.sort(persons);
+    
+    }
+    
+    
     public void loadFromFile() {
         try {
             fileScan = new Scanner(new File(path));
