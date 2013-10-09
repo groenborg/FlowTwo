@@ -704,7 +704,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void newPersonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonCreateActionPerformed
         // TODO add your handling code here:
-        String name = editNameField.getText();
+        String name = createNameField.getText();
         int ad = Integer.parseInt(createAdminField.getText());
         int an = Integer.parseInt(createAnalField.getText());
         int cr = Integer.parseInt(createCreaField.getText());
