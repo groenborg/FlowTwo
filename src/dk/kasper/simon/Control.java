@@ -31,7 +31,21 @@ public class Control {
         initialSetup();
     }
 
-    public void createPerson(String n, int a, int b, int c, int d) {
+    public void createPerson(String n, int a, int b, int c, int d, JLabel l) {
+        
+        boolean check = true;
+        while(check){
+            
+            if(a <=0|| b<=0 ||c<=0|| d<=0){
+                l.setText("Assigned values must be above 0");
+            }else if((a+b+c+d) >= 100){
+                l.setText("The total score must not be over 100");
+            }else if(n == null){
+                l.setText("Fill in name!");
+            }else {
+                check = false;
+            }
+        }
         Person person = new Person(n, a, b, c, d);
         persons.add(person);
         this.saveState = true;
