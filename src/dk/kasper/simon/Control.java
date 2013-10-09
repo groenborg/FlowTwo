@@ -32,22 +32,12 @@ public class Control {
     }
 
     public boolean createPerson(String n, int a, int b, int c, int d, JLabel l) {
-        if (a <= 0 || b <= 0 || c <= 0 || d <= 0) {
-            l.setText("Assigned values must be above 0");
-            return true;
-        } else if ((a + b + c + d) >= 100) {
-            l.setText("The total score must not be over 100");
-            return true;
-        } else if (n == null) {
-            l.setText("Fill in name!");
-            return true;
-        } else {
             Person person = new Person(n, a, b, c, d);
             this.persons.add(person);
             this.saveState = true;
             return false;
         }
-    }
+    
 
     public boolean getSaveState() {
         return this.saveState;
@@ -60,21 +50,23 @@ public class Control {
     public int arraySize() {
         return persons.size();
     }
-
-    public void editPerson(String n, int a, int b, int c, int d, Person person) {
-        person.setName(n);
-        person.setAdmin(a);
-        person.setAnalyst(b);
-        person.setCreative(c);
-        person.setFinisher(d);
-        for(int x = 0; x<persons.size();++x){
-            if(persons.get(x).equals(person)){
-                persons.add(x, person);
-            }
+    
+    public boolean checkInputs(String n, int a, int b, int c, int d, JLabel l){
+    if (a <= 0 || b <= 0 || c <= 0 || d <= 0) {
+            l.setText("Assigned values must be above 0");
+            return true;
+        } else if ((a + b + c + d) >= 100) {
+            l.setText("The total score must not be over 100");
+            return true;
+        } else if (n == null) {
+            l.setText("Fill in name!");
+            return true;
+        } else {
+            return false;
         }
-        this.saveState = true;
     }
-
+    
+    
     public void deletePerson(Person p, JLabel l) {
         for (int x = 0; x < persons.size(); ++x) {
             if (persons.get(x).equals(p)) {
@@ -85,8 +77,6 @@ public class Control {
         }
     }
 
-    public void sort() {
-    }
 
     public void loadFromFile() {
         try {
