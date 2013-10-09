@@ -8,7 +8,6 @@ public class MainFrame extends javax.swing.JFrame {
     private Control control;
     private DefaultListModel model;
     private Person tmp;
-    
 
     public MainFrame() {
         initComponents();
@@ -676,7 +675,7 @@ public class MainFrame extends javax.swing.JFrame {
         int an = Integer.parseInt(editAnalField.getText());
         int cr = Integer.parseInt(editCreaField.getText());
         int fi = Integer.parseInt(editFinField.getText());
-        if(!control.checkInputs(name, ad, an, cr, fi, helpText)){
+        if (!control.checkInputs(name, ad, an, cr, fi, helpText)) {
             control.deletePerson(tmp, helpText);
             control.createPerson(name, ad, an, cr, fi, helpText);
             refreshList();
@@ -690,10 +689,10 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void quitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitMenuItemActionPerformed
-        if(control.getSaveState()){
+        if (control.getSaveState()) {
             quitBox.pack();
             quitBox.setVisible(true);
-        }else{
+        } else {
             System.exit(0);
         }
     }//GEN-LAST:event_quitMenuItemActionPerformed
@@ -705,16 +704,24 @@ public class MainFrame extends javax.swing.JFrame {
     private void newPersonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonCreateActionPerformed
         // TODO add your handling code here:
         String name = createNameField.getText();
-        int ad = Integer.parseInt(createAdminField.getText());
-        int an = Integer.parseInt(createAnalField.getText());
-        int cr = Integer.parseInt(createCreaField.getText());
-        int fi = Integer.parseInt(createFinField.getText());
-        if(!control.checkInputs(name, ad, an, cr, fi, helpText)){
-            control.createPerson(name, ad, an, cr, fi, helpText);
-            refreshList();
-            createFrame.dispose();
+        String da = createAdminField.getText();
+        String na = createAnalField.getText();
+        String rc = createCreaField.getText();
+        String fin = createFinField.getText();
+        if (control.parserTest(da, na, rc, fin, name)) {
+            int ad = Integer.parseInt(da);
+            int an = Integer.parseInt(na);
+            int cr = Integer.parseInt(rc);
+            int fi = Integer.parseInt(fin);
+            if (!control.checkInputs(name, ad, an, cr, fi, helpText)) {
+                control.createPerson(name, ad, an, cr, fi, helpText);
+                refreshList();
+                createFrame.dispose();
+            }
         }
-        
+        else{
+        helpText.setText("Attributes take numbers, Name takes at leat one charcter");
+        }
     }//GEN-LAST:event_newPersonCreateActionPerformed
 
     private void editPersonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPersonCancelActionPerformed
@@ -789,8 +796,6 @@ public class MainFrame extends javax.swing.JFrame {
         v.setLocationRelativeTo(null);
         v.setVisible(true);
     }
-    
-    
 
     private void refreshList() {
         model.clear();
@@ -798,7 +803,6 @@ public class MainFrame extends javax.swing.JFrame {
             model.addElement(control.giveArray(x));
         }
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutCloseButton;
     private javax.swing.JFrame aboutFrame;
