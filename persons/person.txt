@@ -1,2 +1,5 @@
 Kasper,1,2,3,4
 Simon,1,5,3,4
+Fin-Holger,3,5,7,8
+Snuh,3,3,3,3
+Mannermanden,11,78,2,8

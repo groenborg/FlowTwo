@@ -34,6 +34,7 @@ public class Control {
     public boolean createPerson(String n, int a, int b, int c, int d, JLabel l) {
             Person person = new Person(n, a, b, c, d);
             this.persons.add(person);
+            l.setText("Person created succesfully");
             this.saveState = true;
             return false;
         }
@@ -72,7 +73,7 @@ public class Control {
             if (persons.get(x).equals(p)) {
                 this.saveState = true;
                 persons.remove(x);
-                l.setText("Person deleted from list");
+                l.setText("Person deleted from the list");
             }
         }
     }
@@ -93,9 +94,9 @@ public class Control {
                 persons.add(new Person(l, ad, an, cr, fi));
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("Could not load file");
+            System.out.println("Could not load file.");
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Unknown error: " + e);
         }
     }
 

@@ -466,8 +466,8 @@ public class MainFrame extends javax.swing.JFrame {
         setName("proManFrame"); // NOI18N
 
         personList.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                personListMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                personListMousePressed(evt);
             }
         });
         jScrollPane1.setViewportView(personList);
@@ -567,7 +567,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(helpText)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -586,8 +586,9 @@ public class MainFrame extends javax.swing.JFrame {
                                         .addComponent(editButton)
                                         .addGap(18, 18, 18)
                                         .addComponent(deleteButton)))
-                                .addContainerGap(53, Short.MAX_VALUE))
-                            .addComponent(jScrollPane3)))))
+                                .addGap(0, 43, Short.MAX_VALUE))
+                            .addComponent(jScrollPane3))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -636,12 +637,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         openWindows(createFrame);
     }//GEN-LAST:event_createButtonActionPerformed
-    private void personListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personListMouseClicked
-
-        Object selected = personList.getSelectedValue();
-        Person p = ((Person) selected);
-        viewerTextArea.setText(p.showPerson());
-    }//GEN-LAST:event_personListMouseClicked
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         Object selected = personList.getSelectedValue();
         if (selected != null) {
@@ -674,15 +669,20 @@ public class MainFrame extends javax.swing.JFrame {
         editFinField.setText("" + p.getFinisher());
         this.tmp = p;
     }//GEN-LAST:event_editFrameWindowActivated
+
     private void editPersonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPersonCreateActionPerformed
         String name = editNameField.getText();
         int ad = Integer.parseInt(editAdminField.getText());
         int an = Integer.parseInt(editAnalField.getText());
         int cr = Integer.parseInt(editCreaField.getText());
         int fi = Integer.parseInt(editFinField.getText());
-        control.editPerson(name, ad, an, cr, fi, tmp);
-
-
+        if(!control.checkInputs(name, ad, an, cr, fi, helpText)){
+            control.deletePerson(tmp, helpText);
+            control.createPerson(name, ad, an, cr, fi, helpText);
+            refreshList();
+            editFrame.dispose();
+            viewerTextArea.setText("");
+        }
     }//GEN-LAST:event_editPersonCreateActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
@@ -709,7 +709,8 @@ public class MainFrame extends javax.swing.JFrame {
         int an = Integer.parseInt(createAnalField.getText());
         int cr = Integer.parseInt(createCreaField.getText());
         int fi = Integer.parseInt(createFinField.getText());
-        if(!control.createPerson(name, an, fi, cr, ad, helpText)){
+        if(!control.checkInputs(name, ad, an, cr, fi, helpText)){
+            control.createPerson(name, ad, an, cr, fi, helpText);
             refreshList();
             createFrame.dispose();
         }
@@ -717,7 +718,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_newPersonCreateActionPerformed
 
     private void editPersonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPersonCancelActionPerformed
-        createFrame.dispose();
+        editFrame.dispose();
     }//GEN-LAST:event_editPersonCancelActionPerformed
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
@@ -744,6 +745,12 @@ public class MainFrame extends javax.swing.JFrame {
     private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortButtonActionPerformed
         // sortList();
     }//GEN-LAST:event_sortButtonActionPerformed
+
+    private void personListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personListMousePressed
+        Object selected = personList.getSelectedValue();
+        Person p = ((Person) selected);
+        viewerTextArea.setText(p.showPerson());
+    }//GEN-LAST:event_personListMousePressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
