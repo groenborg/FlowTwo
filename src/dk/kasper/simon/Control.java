@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JLabel;
 
 /**
  *
@@ -35,6 +36,10 @@ public class Control {
         persons.add(person);
         this.saveState = true;
         return person;
+    }
+    
+    public boolean getSaveState(){
+    return this.saveState;
     }
     
     public Person giveArray(int x){
@@ -84,7 +89,7 @@ public class Control {
         }
     }
     
-    public void saveToFile() {
+    public void saveToFile(JLabel text) {
         try {
             pw = new PrintWriter(path);
             for (int x = 0; x < persons.size(); ++x) {
@@ -92,10 +97,11 @@ public class Control {
             }
             this.saveState = false;
             pw.close();
+            text.setText("Files succesfully saved.");
         } catch (FileNotFoundException ex) {
-            System.out.println("File not found");
+            text.setText("Could not find file.");
         } catch (Exception e) {
-            System.out.println("Error in writing to file");
+            text.setText("An unknown eroor occured.");
         }
     }
 

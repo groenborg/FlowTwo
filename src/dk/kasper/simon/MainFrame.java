@@ -18,8 +18,6 @@ public class MainFrame extends javax.swing.JFrame {
         control.loadFromFile();
         helpText.setText("File succesfully Loaded");
         refreshList();
-        
-
     }
 
     @SuppressWarnings("unchecked")
@@ -90,7 +88,10 @@ public class MainFrame extends javax.swing.JFrame {
         helpMenu = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
 
-        jLabel1.setText("Fill in the fields with the persons name, and the appropriate scores.");
+        createFrame.setMinimumSize(new java.awt.Dimension(328, 361));
+        createFrame.setPreferredSize(new java.awt.Dimension(298, 281));
+
+        jLabel1.setText("Fill in the fields with the persons name, and  scores.");
 
         jLabel2.setText("Name");
 
@@ -120,34 +121,37 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(createFrameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(createFrameLayout.createSequentialGroup()
-                        .addComponent(createCreaField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)
-                        .addComponent(createFinField))
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addGroup(createFrameLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(131, 131, 131)
-                        .addComponent(jLabel4))
-                    .addGroup(createFrameLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(154, 154, 154)
-                        .addComponent(jLabel6))
+                .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(createFrameLayout.createSequentialGroup()
                         .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(createNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                            .addComponent(createNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                             .addComponent(createAdminField))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(createAnalField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(createAnalField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createFrameLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(74, 74, 74))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createFrameLayout.createSequentialGroup()
+                        .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(createCreaField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(createFrameLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(73, 73, 73))
+                            .addComponent(createFinField))))
+                .addContainerGap())
             .addGroup(createFrameLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(newPersonCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(newPersonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addGap(40, 40, 40))
         );
         createFrameLayout.setVerticalGroup(
             createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,35 +232,37 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(editFrameLayout.createSequentialGroup()
-                        .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(editNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                            .addComponent(editAdminField))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editAnalField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(editFrameLayout.createSequentialGroup()
                         .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
                             .addGroup(editFrameLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(131, 131, 131)
-                                .addComponent(jLabel10))
-                            .addGroup(editFrameLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addGap(154, 154, 154)
-                                .addComponent(jLabel12)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(editCreaField, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                    .addComponent(editAdminField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editNameField, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(editAnalField, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                    .addComponent(editFinField)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editFrameLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(editFrameLayout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addGap(127, 127, 127)
+                                        .addComponent(jLabel12))
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addGroup(editFrameLayout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(104, 104, 104)
+                                        .addComponent(jLabel10)))
+                                .addGap(22, 22, 22)))
+                        .addContainerGap())
                     .addGroup(editFrameLayout.createSequentialGroup()
-                        .addComponent(editCreaField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)
-                        .addComponent(editFinField)))
-                .addContainerGap())
-            .addGroup(editFrameLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(newPersonCreate1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(newPersonCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(newPersonCreate1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(newPersonCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40))))
         );
         editFrameLayout.setVerticalGroup(
             editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -465,6 +471,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         fileMenu.setText("File");
 
+        loadMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         loadMenuItem.setText("Load list");
         loadMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -473,17 +480,30 @@ public class MainFrame extends javax.swing.JFrame {
         });
         fileMenu.add(loadMenuItem);
 
+        saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         saveMenuItem.setText("Save list");
+        saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveMenuItem);
         fileMenu.add(jSeparator1);
 
+        quitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
         quitMenuItem.setText("Quit program");
+        quitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(quitMenuItem);
 
         jMenuBar1.add(fileMenu);
 
         helpMenu.setText("Help");
 
+        aboutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
         aboutMenuItem.setText("About");
         aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -550,8 +570,9 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void loadMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadMenuItemActionPerformed
-
         control.loadFromFile();
+        helpText.setText("File succesfully Loaded");
+        refreshList();
     }//GEN-LAST:event_loadMenuItemActionPerformed
     private void createFinFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createFinFieldActionPerformed
     }//GEN-LAST:event_createFinFieldActionPerformed
@@ -578,7 +599,12 @@ public class MainFrame extends javax.swing.JFrame {
         viewerTextArea.setText(p.showPerson());
     }//GEN-LAST:event_personListMouseClicked
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        openWindows(editFrame);
+        Object selected = personList.getSelectedValue();
+        if (selected != null) {
+            openWindows(editFrame);
+        } else {
+            helpText.setText("No person selected.");
+        }
     }//GEN-LAST:event_editButtonActionPerformed
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         if (personList.getSelectedValue() != null) {
@@ -611,13 +637,23 @@ public class MainFrame extends javax.swing.JFrame {
         int cr = Integer.parseInt(editCreaField.getText());
         int fi = Integer.parseInt(editFinField.getText());
         control.editPerson(name, ad, an, cr, fi, tmp);
-        
+
 
     }//GEN-LAST:event_newPersonCreate1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
+        control.saveToFile(helpText);
+    }//GEN-LAST:event_saveMenuItemActionPerformed
+
+    private void quitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitMenuItemActionPerformed
+        if(control.getSaveState()){
+            quitBox.pack();
+            quitBox.setVisible(true);
+        }else{
+            System.exit(0);
+        }
+    }//GEN-LAST:event_quitMenuItemActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -658,6 +694,8 @@ public class MainFrame extends javax.swing.JFrame {
         v.setLocationRelativeTo(null);
         v.setVisible(true);
     }
+    
+    
 
     private void refreshList() {
         for (int x = 0; x < control.arraySize(); ++x) {
