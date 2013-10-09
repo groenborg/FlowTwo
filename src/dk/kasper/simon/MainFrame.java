@@ -784,6 +784,7 @@ public class MainFrame extends javax.swing.JFrame {
     
 
     private void refreshList() {
+        model.clear();
         for (int x = 0; x < control.arraySize(); ++x) {
             model.addElement(control.giveArray(x));
         }
