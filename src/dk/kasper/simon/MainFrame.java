@@ -79,6 +79,7 @@ public class MainFrame extends javax.swing.JFrame {
         viewerTextArea = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        sortButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         loadMenuItem = new javax.swing.JMenuItem();
@@ -89,7 +90,6 @@ public class MainFrame extends javax.swing.JFrame {
         aboutMenuItem = new javax.swing.JMenuItem();
 
         createFrame.setMinimumSize(new java.awt.Dimension(328, 361));
-        createFrame.setPreferredSize(new java.awt.Dimension(298, 281));
 
         jLabel1.setText("Fill in the fields with the persons name, and  scores.");
 
@@ -426,6 +426,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         noDelete.setText("No");
+        noDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout deleteBoxLayout = new javax.swing.GroupLayout(deleteBox.getContentPane());
         deleteBox.getContentPane().setLayout(deleteBoxLayout);
@@ -499,6 +504,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel14.setText("Viewer");
 
+        sortButton.setText("Sort");
+        sortButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortButtonActionPerformed(evt);
+            }
+        });
+
         fileMenu.setText("File");
 
         loadMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
@@ -555,14 +567,16 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(helpText)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(sortButton)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14)
@@ -572,8 +586,8 @@ public class MainFrame extends javax.swing.JFrame {
                                         .addComponent(editButton)
                                         .addGap(18, 18, 18)
                                         .addComponent(deleteButton)))
-                                .addGap(0, 43, Short.MAX_VALUE)))))
-                .addContainerGap())
+                                .addContainerGap(53, Short.MAX_VALUE))
+                            .addComponent(jScrollPane3)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -581,11 +595,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel14))
+                    .addComponent(jLabel14)
+                    .addComponent(sortButton, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(createButton)
@@ -694,7 +709,7 @@ public class MainFrame extends javax.swing.JFrame {
         int an = Integer.parseInt(createAnalField.getText());
         int cr = Integer.parseInt(createCreaField.getText());
         int fi = Integer.parseInt(createFinField.getText());
-        control.createPerson(name, an, fi, cr, ad);
+        control.createPerson(name, an, fi, cr, ad, helpText);
         refreshList();
     }//GEN-LAST:event_newPersonCreateActionPerformed
 
@@ -712,10 +727,18 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_noButtonActionPerformed
 
     private void yesDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesDeleteActionPerformed
-        // TODO add your handling code here:
-        
-        
+        Object selected = personList.getSelectedValue();
+        Person p = (Person) selected;
+        control.deletePerson(p, helpText);
     }//GEN-LAST:event_yesDeleteActionPerformed
+
+    private void noDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noDeleteActionPerformed
+        deleteBox.dispose();
+    }//GEN-LAST:event_noDeleteActionPerformed
+
+    private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortButtonActionPerformed
+        // sortList();
+    }//GEN-LAST:event_sortButtonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -826,6 +849,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JDialog quitBox;
     private javax.swing.JMenuItem quitMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JButton sortButton;
     private javax.swing.JTextArea viewerTextArea;
     private javax.swing.JButton yesButton;
     private javax.swing.JButton yesDelete;
