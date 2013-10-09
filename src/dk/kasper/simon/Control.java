@@ -94,6 +94,7 @@ public class Control {
             pw = new PrintWriter(path);
             for (int x = 0; x < persons.size(); ++x) {
                 pw.write(persons.get(x).toFile());
+                pw.println("");
             }
             this.saveState = false;
             pw.close();
