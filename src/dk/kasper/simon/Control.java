@@ -49,11 +49,11 @@ public class Control {
     }
 
     public boolean checkInputs(String n, int a, int b, int c, int d, JLabel l) {
-        if (a <= 0 || b <= 0 || c <= 0 || d <= 0) {
-            l.setText("Assigned values must be above 0");
+        if (a < 0 || b < 0 || c < 0 || d < 0) {
+            l.setText("Assigned values must be at least 0");
             return true;
-        } else if ((a + b + c + d) >= 100) {
-            l.setText("The total score must not be over 100");
+        } else if ((a + b + c + d) > 30) {
+            l.setText("The total score must not be over 30");
             return true;
         } else if (n == null) {
             l.setText("Fill in name!");
