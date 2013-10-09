@@ -31,11 +31,10 @@ public class Control {
         initialSetup();
     }
 
-    public Person createPerson(String n, int a, int b, int c, int d) {
+    public void createPerson(String n, int a, int b, int c, int d) {
         Person person = new Person(n, a, b, c, d);
         persons.add(person);
         this.saveState = true;
-        return person;
     }
     
     public boolean getSaveState(){

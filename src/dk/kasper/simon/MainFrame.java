@@ -110,8 +110,18 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         newPersonCreate.setText("Create");
+        newPersonCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newPersonCreateActionPerformed(evt);
+            }
+        });
 
         newPersonCancel.setText("Cancel");
+        newPersonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newPersonCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout createFrameLayout = new javax.swing.GroupLayout(createFrame.getContentPane());
         createFrame.getContentPane().setLayout(createFrameLayout);
@@ -653,6 +663,21 @@ public class MainFrame extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_quitMenuItemActionPerformed
+
+    private void newPersonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonCancelActionPerformed
+        createFrame.dispose();
+    }//GEN-LAST:event_newPersonCancelActionPerformed
+
+    private void newPersonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonCreateActionPerformed
+        // TODO add your handling code here:
+        String name = editNameField.getText();
+        int ad = Integer.parseInt(createAdminField.getText());
+        int an = Integer.parseInt(createAnalField.getText());
+        int cr = Integer.parseInt(createCreaField.getText());
+        int fi = Integer.parseInt(createFinField.getText());
+        control.createPerson(name, an, fi, cr, ad);
+        refreshList();
+    }//GEN-LAST:event_newPersonCreateActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
