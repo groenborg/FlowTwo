@@ -61,14 +61,18 @@ public class Control {
         return persons.size();
     }
 
-    public Person editPerson(String n, int a, int b, int c, int d, Person person) {
+    public void editPerson(String n, int a, int b, int c, int d, Person person) {
         person.setName(n);
         person.setAdmin(a);
         person.setAnalyst(b);
         person.setCreative(c);
         person.setFinisher(d);
+        for(int x = 0; x<persons.size();++x){
+            if(persons.get(x).equals(person)){
+                persons.add(x, person);
+            }
+        }
         this.saveState = true;
-        return person;
     }
 
     public void deletePerson(Person p, JLabel l) {
