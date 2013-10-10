@@ -5,19 +5,22 @@
 package dk.kasper.simon;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 /**
  *
  * @author Simon
  */
 public class ArrHereBeSecrets {
-
+    private static Font font;
     private static Random rnd;
     private String[] titles;
 
@@ -25,6 +28,7 @@ public class ArrHereBeSecrets {
         titles = new String[]{"Salty Seadog ", "Timber Fiddler", "Landlubber", "Dread Pirate ", "Cap'n ",
             "Scurvy Dog ", "Peglegged ", "Cutthroat ", "Deck swapper"};
         rnd = new Random();
+        font = new Font("Papyrus",Font.PLAIN,12);
     }
 
     public String ArrGetReadyYaLandlubber() {
@@ -105,4 +109,11 @@ public class ArrHereBeSecrets {
         one.setText("Last chance");
         two.setText("Throw overboard");
     }
+    
+    public void learnToWrite(JList list, JTextArea area, JLabel label){
+    list.setFont(font);
+    area.setFont(font);
+    label.setFont(font);
+    }
+    
 }
