@@ -12,7 +12,8 @@ public class Person {
 
     private String name, secretTitle;
     private int admin, analyst, creative, finisher;
-
+    private static boolean pirateMode;
+    
     public Person(String name, int admin, int analyst, int creative, int finisher) {
         this.admin = admin;
         this.analyst = analyst;
@@ -40,7 +41,7 @@ public class Person {
     public int getFinisher() {
         return finisher;
     }
-
+    
     public String showPerson() {
         StringBuilder sb = new StringBuilder();
         sb.append("Name: \t");
@@ -61,9 +62,16 @@ public class Person {
         return person;
     }
 
+    public static void getmode(boolean mode){
+        pirateMode = mode;
+    }
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        if(pirateMode==true){
+        sb.append(this.secretTitle);
+        }
         sb.append(this.name);
         return sb.toString();
     }

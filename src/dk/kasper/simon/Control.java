@@ -22,9 +22,11 @@ public class Control {
     private ArrayList<Person> persons;
     private String path;
     private boolean saveState;
+    private boolean pirateMode;
 
     public Control() {
         this.saveState = false;
+        this.pirateMode = false;
         persons = new ArrayList();
         initialSetup();
     }
@@ -36,6 +38,10 @@ public class Control {
         return false;
     }
 
+    public boolean getPirateMode(){
+        return this.pirateMode;
+    }
+    
     public boolean getSaveState() {
         return this.saveState;
     }
@@ -91,6 +97,7 @@ public class Control {
                 String tmp = fileScan.next();
                 String[] tokens = tmp.split(",");
                 String l = tokens[0];
+                if(tokens[0].equalsIgnoreCase("Dread Pirate")) this.pirateMode = true;
                 int ad = Integer.parseInt(tokens[1]);
                 int an = Integer.parseInt(tokens[2]);
                 int cr = Integer.parseInt(tokens[3]);

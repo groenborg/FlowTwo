@@ -17,6 +17,7 @@ public class MainFrame extends javax.swing.JFrame {
         control.loadFromFile();
         helpText.setText("File succesfully Loaded");
         refreshList();
+        ArrHereBeSecrets ar = new ArrHereBeSecrets();
     }
 
     @SuppressWarnings("unchecked")
@@ -68,16 +69,17 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         yesDelete = new javax.swing.JButton();
         noDelete = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        personList = new javax.swing.JList();
+        mainPanel = new javax.swing.JPanel();
+        helpText = new javax.swing.JLabel();
+        viewText = new javax.swing.JLabel();
         createButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
-        helpText = new javax.swing.JLabel();
+        applicantsText = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         viewerTextArea = new javax.swing.JTextArea();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        personList = new javax.swing.JList();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         loadMenuItem = new javax.swing.JMenuItem();
@@ -466,17 +468,15 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Team Manager");
+        setBackground(new java.awt.Color(255, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(520, 360));
         setName("proManFrame"); // NOI18N
 
-        personList.setToolTipText("List of applicants");
-        personList.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                personListMousePressed(evt);
-            }
-        });
-        jScrollPane1.setViewportView(personList);
+        helpText.setText("Help is displayed in this label.");
+        helpText.setToolTipText("Helpful information displayed here");
+
+        viewText.setText("Viewer");
 
         createButton.setText("Create Person");
         createButton.setToolTipText("Create a new person");
@@ -502,8 +502,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        helpText.setText("Help is displayed in this label.");
-        helpText.setToolTipText("Helpful information displayed here");
+        applicantsText.setText("Applicants");
 
         viewerTextArea.setEditable(false);
         viewerTextArea.setColumns(20);
@@ -511,9 +510,64 @@ public class MainFrame extends javax.swing.JFrame {
         viewerTextArea.setToolTipText("View your selected person");
         jScrollPane3.setViewportView(viewerTextArea);
 
-        jLabel13.setText("Applicants");
+        personList.setToolTipText("List of applicants");
+        personList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                personListMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(personList);
 
-        jLabel14.setText("Viewer");
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addComponent(helpText)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(applicantsText))
+                        .addGap(18, 18, 18)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(viewText)
+                                    .addGroup(mainPanelLayout.createSequentialGroup()
+                                        .addComponent(createButton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(editButton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(deleteButton)))
+                                .addGap(0, 31, Short.MAX_VALUE))
+                            .addComponent(jScrollPane3))))
+                .addContainerGap())
+        );
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(applicantsText)
+                    .addComponent(viewText))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(createButton)
+                            .addComponent(editButton)
+                            .addComponent(deleteButton)))
+                    .addComponent(jScrollPane1))
+                .addGap(18, 18, 18)
+                .addComponent(helpText)
+                .addContainerGap())
+        );
 
         fileMenu.setText("File");
         fileMenu.setToolTipText("File menu");
@@ -574,48 +628,14 @@ public class MainFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(helpText)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(createButton)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(editButton)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(deleteButton)))
-                                .addGap(0, 43, Short.MAX_VALUE))
-                            .addComponent(jScrollPane3))))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(createButton)
-                            .addComponent(editButton)
-                            .addComponent(deleteButton)))
-                    .addComponent(jScrollPane1))
-                .addGap(18, 18, 18)
-                .addComponent(helpText)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -818,6 +838,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton aboutCloseButton;
     private javax.swing.JFrame aboutFrame;
     private javax.swing.JMenuItem aboutMenuItem;
+    private javax.swing.JLabel applicantsText;
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField createAdminField;
     private javax.swing.JTextField createAnalField;
@@ -844,8 +865,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -867,6 +886,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JMenuItem loadMenuItem;
+    private javax.swing.JPanel mainPanel;
     private javax.swing.JButton newPersonCancel;
     private javax.swing.JButton newPersonCreate;
     private javax.swing.JButton noButton;
@@ -875,6 +895,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JDialog quitBox;
     private javax.swing.JMenuItem quitMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JLabel viewText;
     private javax.swing.JTextArea viewerTextArea;
     private javax.swing.JButton yesButton;
     private javax.swing.JButton yesDelete;

@@ -17,5 +17,7 @@ public class FlowTwo {
     public static void main(String[] args) {
         // TODO code application logic here
  
+        ArrHereBeSecrets f = new ArrHereBeSecrets();
+        
     }
 }
