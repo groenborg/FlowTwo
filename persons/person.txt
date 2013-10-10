@@ -1,2 +1,5 @@
-Kasper,1,2,3,4
-Veilis,7,90,1,1
+Hummer,8,6,8,8
+Fiddleman,10,10,10,0
+Krabbe,25,2,1,1
+Hajen,12,10,5,3
+Trænermanden,5,5,8,12

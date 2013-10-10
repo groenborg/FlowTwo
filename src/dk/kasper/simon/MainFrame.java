@@ -704,6 +704,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void quitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitMenuItemActionPerformed
         if (control.getSaveState()) {
             quitBox.pack();
+            quitBox.setLocationRelativeTo(null);
             quitBox.setVisible(true);
         } else {
             System.exit(0);
