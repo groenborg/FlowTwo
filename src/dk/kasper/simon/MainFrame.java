@@ -10,7 +10,7 @@ public class MainFrame extends javax.swing.JFrame {
     private Person tmp;
     private boolean secret;
     private ArrHereBeSecrets pirate;
-    
+
     public MainFrame() {
         initComponents();
         control = new Control();
@@ -18,11 +18,9 @@ public class MainFrame extends javax.swing.JFrame {
         pirate = new ArrHereBeSecrets();
         personList.setModel(model);
         control.loadFromFile();
-        if(control.getPirateMode())this.secret = true;
         helpText.setText("File succesfully Loaded");
-        activatePirate();
+
         refreshList();
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -524,6 +522,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         shipOkButton.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         shipOkButton.setText("Piracy!");
+        shipOkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shipOkButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel1.setText("Oy, you there landlubber, you just got hired to be me personal assistant.");
@@ -719,7 +722,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3)
                             .addGroup(mainPanelLayout.createSequentialGroup()
                                 .addComponent(createButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -832,7 +835,11 @@ public class MainFrame extends javax.swing.JFrame {
     private void editFinFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFinFieldActionPerformed
     }//GEN-LAST:event_editFinFieldActionPerformed
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        openWindows(aboutFrame);
+        if (this.secret) {
+            openWindows(aboutPirateFrame);
+        } else {
+            openWindows(aboutFrame);
+        }
     }//GEN-LAST:event_aboutMenuItemActionPerformed
     private void aboutCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutCloseButtonActionPerformed
         aboutFrame.dispose();
@@ -917,7 +924,15 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_newPersonCancelActionPerformed
 
     private void newPersonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonCreateActionPerformed
-        newPerson();
+
+        if (createNameField.getText().equals("Dread Pirate")) {
+            this.secret = true;
+            activatePirate();
+            createFrame.dispose();
+            openWindows(shipFrame);
+        } else {
+            newPerson();
+        }
     }//GEN-LAST:event_newPersonCreateActionPerformed
 
     private void editPersonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPersonCancelActionPerformed
@@ -944,20 +959,23 @@ public class MainFrame extends javax.swing.JFrame {
     private void noDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noDeleteActionPerformed
         deleteBox.dispose();
     }//GEN-LAST:event_noDeleteActionPerformed
-
     private void personListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personListMousePressed
         Object selected = personList.getSelectedValue();
         Person p = ((Person) selected);
-        if(this.secret){
+        if (this.secret) {
             viewerTextArea.setText(pirate.ohayThar(p));
-        }else{
+        } else {
             viewerTextArea.setText(p.showPerson());
         }
     }//GEN-LAST:event_personListMousePressed
-
     private void aboutPirateCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutPirateCloseActionPerformed
         aboutPirateFrame.dispose();
+
     }//GEN-LAST:event_aboutPirateCloseActionPerformed
+    private void shipOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shipOkButtonActionPerformed
+        shipFrame.dispose();
+
+    }//GEN-LAST:event_shipOkButtonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -991,20 +1009,19 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
 
-    private void activatePirate(){
-        if(secret==true){
+    private void activatePirate() {
+        if (secret == true) {
             Person.getmode(secret);
             pirate.learnToWrite(personList, viewerTextArea, helpText);
-            pirate.ArrChangeSomeTitles(nameLabel, adLabel, anLabel, finLabel,creaLabel, textLabel1, textLabel2, newPersonCreate, newPersonCancel);
+            pirate.ArrChangeSomeTitles(nameLabel, adLabel, anLabel, finLabel, creaLabel, textLabel1, textLabel2, newPersonCreate, newPersonCancel);
             pirate.ArrChangeSomeEditTitles(editName, editAdmin, editAnal, editCrea, editFin, editText1, editText2, editPersonCreate, editPersonCancel);
             pirate.ArrWhatBecomeOfMeCrew(createButton, editButton, deleteButton, viewText, applicantsText, helpMenu, fileMenu);
-            pirate.ArrIBeNeedinANewPaintjobForMeBoat(mainPanel, createPanel, editPanel, quitBox,viewerTextArea,personList);
-        
+            pirate.ArrIBeNeedinANewPaintjobForMeBoat(mainPanel, createPanel, editPanel, quitBox, viewerTextArea, personList);
         }
     }
-    
-    public void newPerson(){
-    String name = createNameField.getText();
+
+    public void newPerson() {
+        String name = createNameField.getText();
         String da = createAdminField.getText();
         String na = createAnalField.getText();
         String rc = createCreaField.getText();
@@ -1022,7 +1039,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         }
     }
-    
+
     public void openWindows(JFrame v) {
         v.pack();
         v.setLocationRelativeTo(null);

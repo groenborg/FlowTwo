@@ -22,11 +22,11 @@ public class Control {
     private ArrayList<Person> persons;
     private String path;
     private boolean saveState;
-    private boolean pirateMode;
+    
 
     public Control() {
         this.saveState = false;
-        this.pirateMode = false;
+        
         persons = new ArrayList();
         initialSetup();
     }
@@ -36,10 +36,6 @@ public class Control {
         this.persons.add(person);
         this.saveState = true;
         return false;
-    }
-
-    public boolean getPirateMode(){
-        return this.pirateMode;
     }
     
     public boolean getSaveState() {
@@ -71,7 +67,8 @@ public class Control {
 
     public boolean parserTest(String a, String b, String c, String d, String name, JLabel l) {
         if (a.matches("\\d+") && b.matches("\\d+") && c.matches("\\d+") && d.matches("\\d+")) {
-            if (name.matches("\\S+")) {
+            String tmp = name.replace(" ", "");
+            if (tmp.length()>0) {
                 return true;
             }
         }
@@ -97,7 +94,6 @@ public class Control {
                 String tmp = fileScan.nextLine();
                 String[] tokens = tmp.split(",");
                 String l = tokens[0];
-                if(tokens[0].equalsIgnoreCase("Dread Pirate")) this.pirateMode = true;
                 int ad = Integer.parseInt(tokens[1]);
                 int an = Integer.parseInt(tokens[2]);
                 int cr = Integer.parseInt(tokens[3]);

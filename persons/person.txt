@@ -3,4 +3,3 @@ Fiddleman,10,10,10,0
 Krabbe,25,2,1,1
 Hajen,12,10,5,3
 Trænermanden,5,5,8,12
-Dread Pirate,10,1,10,10
