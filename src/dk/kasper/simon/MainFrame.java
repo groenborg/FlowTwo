@@ -8,16 +8,21 @@ public class MainFrame extends javax.swing.JFrame {
     private Control control;
     private DefaultListModel model;
     private Person tmp;
-
+    private boolean secret;
+    private ArrHereBeSecrets pirate;
+    
     public MainFrame() {
         initComponents();
         control = new Control();
         this.model = new DefaultListModel();
+        pirate = new ArrHereBeSecrets();
         personList.setModel(model);
         control.loadFromFile();
+        if(control.getPirateMode())this.secret = true;
         helpText.setText("File succesfully Loaded");
+        activatePirate();
         refreshList();
-        ArrHereBeSecrets ar = new ArrHereBeSecrets();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -25,37 +30,37 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         createFrame = new javax.swing.JFrame();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        textLabel1 = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
         createNameField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        adLabel = new javax.swing.JLabel();
         createAdminField = new javax.swing.JTextField();
         createAnalField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        anLabel = new javax.swing.JLabel();
+        creaLabel = new javax.swing.JLabel();
         createCreaField = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        finLabel = new javax.swing.JLabel();
         createFinField = new javax.swing.JTextField();
         newPersonCreate = new javax.swing.JButton();
         newPersonCancel = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
-        jLabel17 = new javax.swing.JLabel();
+        textLabel2 = new javax.swing.JLabel();
         editFrame = new javax.swing.JFrame();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        editText1 = new javax.swing.JLabel();
+        editName = new javax.swing.JLabel();
         editNameField = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        editAdmin = new javax.swing.JLabel();
         editAdminField = new javax.swing.JTextField();
         editAnalField = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        editAnal = new javax.swing.JLabel();
+        editCrea = new javax.swing.JLabel();
         editCreaField = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        editFin = new javax.swing.JLabel();
         editFinField = new javax.swing.JTextField();
         editPersonCreate = new javax.swing.JButton();
         editPersonCancel = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
-        jLabel18 = new javax.swing.JLabel();
+        editText2 = new javax.swing.JLabel();
         aboutFrame = new javax.swing.JFrame();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
@@ -91,17 +96,17 @@ public class MainFrame extends javax.swing.JFrame {
 
         createFrame.setMinimumSize(new java.awt.Dimension(328, 361));
 
-        jLabel1.setText("Fill in name and numbers. Sum of numbers may not");
+        textLabel1.setText("Fill in name and numbers. Sum of numbers may not");
 
-        jLabel2.setText("Name");
+        nameLabel.setText("Name");
 
-        jLabel3.setText("Administrator");
+        adLabel.setText("Administrator");
 
-        jLabel4.setText("Analyst");
+        anLabel.setText("Analyst");
 
-        jLabel5.setText("Creative");
+        creaLabel.setText("Creative");
 
-        jLabel6.setText("Finisher");
+        finLabel.setText("Finisher");
 
         createFinField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +128,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel17.setText("exceed 30 in value.");
+        textLabel2.setText("exceed 30 in value.");
 
         javax.swing.GroupLayout createFrameLayout = new javax.swing.GroupLayout(createFrame.getContentPane());
         createFrame.getContentPane().setLayout(createFrameLayout);
@@ -131,67 +136,66 @@ public class MainFrame extends javax.swing.JFrame {
             createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(createFrameLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
                 .addComponent(newPersonCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(newPersonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
             .addGroup(createFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createFrameLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(adLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
+                        .addComponent(anLabel)
                         .addGap(74, 74, 74))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createFrameLayout.createSequentialGroup()
                         .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
+                            .addComponent(creaLabel)
                             .addComponent(createCreaField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(createFrameLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(finLabel)
                                 .addGap(73, 73, 73))
                             .addComponent(createFinField)))
-                    .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(createFrameLayout.createSequentialGroup()
-                            .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(createNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                                .addComponent(createAdminField))
-                            .addGap(94, 94, 94)
-                            .addComponent(createAnalField))
-                        .addGroup(createFrameLayout.createSequentialGroup()
-                            .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel17))
-                            .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(createFrameLayout.createSequentialGroup()
+                        .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(createNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                            .addComponent(createAdminField))
+                        .addGap(94, 94, 94)
+                        .addComponent(createAnalField))
+                    .addGroup(createFrameLayout.createSequentialGroup()
+                        .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textLabel1)
+                            .addComponent(nameLabel)
+                            .addComponent(textLabel2))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         createFrameLayout.setVerticalGroup(
             createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(createFrameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(textLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel17)
+                .addComponent(textLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(nameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(createNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(adLabel)
+                    .addComponent(anLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createAdminField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(createAnalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(creaLabel)
+                    .addComponent(finLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createCreaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,17 +215,17 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Edit name and number fields. Total number");
+        editText1.setText("Edit name and number fields. Total number");
 
-        jLabel8.setText("Name");
+        editName.setText("Name");
 
-        jLabel9.setText("Administrator");
+        editAdmin.setText("Administrator");
 
-        jLabel10.setText("Analyst");
+        editAnal.setText("Analyst");
 
-        jLabel11.setText("Creative");
+        editCrea.setText("Creative");
 
-        jLabel12.setText("Finisher");
+        editFin.setText("Finisher");
 
         editFinField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,7 +247,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel18.setText("value may not exceed 30.");
+        editText2.setText("value may not exceed 30.");
 
         javax.swing.GroupLayout editFrameLayout = new javax.swing.GroupLayout(editFrame.getContentPane());
         editFrame.getContentPane().setLayout(editFrameLayout);
@@ -256,22 +260,22 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editFrameLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
+                            .addComponent(editName)
                             .addGroup(editFrameLayout.createSequentialGroup()
                                 .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel9))
+                                    .addComponent(editCrea)
+                                    .addComponent(editAdmin))
                                 .addGap(91, 91, 91)
                                 .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
+                                    .addComponent(editAnal)
                                     .addComponent(editAnalField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12)
+                                    .addComponent(editFin)
                                     .addComponent(editFinField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(28, 28, 28))
                     .addGroup(editFrameLayout.createSequentialGroup()
                         .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel18))
+                            .addComponent(editText1)
+                            .addComponent(editText2))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(editFrameLayout.createSequentialGroup()
                         .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,25 +294,25 @@ public class MainFrame extends javax.swing.JFrame {
             editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editFrameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7)
+                .addComponent(editText1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel18)
+                .addComponent(editText2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
+                .addComponent(editName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
+                    .addComponent(editAdmin)
+                    .addComponent(editAnal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editAdminField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editAnalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12))
+                    .addComponent(editCrea)
+                    .addComponent(editFin))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editCreaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -802,6 +806,15 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
 
+    private void activatePirate(){
+        if(secret==true){
+            pirate.ArrChangeSomeTitles(nameLabel, adLabel, anLabel, finLabel,creaLabel, textLabel1, textLabel2, createButton, cancelButton);
+            pirate.ArrChangeSomeEditTitles(editName, editAdmin, editAnal, editCrea, editFin, editText1, editText2, editPersonCreate, editPersonCancel);
+            pirate.ArrWhatBecomeOfMeCrew(createButton, editButton, deleteButton, viewText, applicantsText, helpMenu, fileMenu);
+        }
+    
+    }
+    
     public void newPerson(){
     String name = createNameField.getText();
         String da = createAdminField.getText();
@@ -838,8 +851,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton aboutCloseButton;
     private javax.swing.JFrame aboutFrame;
     private javax.swing.JMenuItem aboutMenuItem;
+    private javax.swing.JLabel adLabel;
+    private javax.swing.JLabel anLabel;
     private javax.swing.JLabel applicantsText;
     private javax.swing.JButton cancelButton;
+    private javax.swing.JLabel creaLabel;
     private javax.swing.JTextField createAdminField;
     private javax.swing.JTextField createAnalField;
     private javax.swing.JButton createButton;
@@ -849,34 +865,28 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField createNameField;
     private javax.swing.JDialog deleteBox;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JLabel editAdmin;
     private javax.swing.JTextField editAdminField;
+    private javax.swing.JLabel editAnal;
     private javax.swing.JTextField editAnalField;
     private javax.swing.JButton editButton;
+    private javax.swing.JLabel editCrea;
     private javax.swing.JTextField editCreaField;
+    private javax.swing.JLabel editFin;
     private javax.swing.JTextField editFinField;
     private javax.swing.JFrame editFrame;
+    private javax.swing.JLabel editName;
     private javax.swing.JTextField editNameField;
     private javax.swing.JButton editPersonCancel;
     private javax.swing.JButton editPersonCreate;
+    private javax.swing.JLabel editText1;
+    private javax.swing.JLabel editText2;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JLabel finLabel;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JLabel helpText;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -887,6 +897,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JMenuItem loadMenuItem;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JButton newPersonCancel;
     private javax.swing.JButton newPersonCreate;
     private javax.swing.JButton noButton;
@@ -895,6 +906,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JDialog quitBox;
     private javax.swing.JMenuItem quitMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JLabel textLabel1;
+    private javax.swing.JLabel textLabel2;
     private javax.swing.JLabel viewText;
     private javax.swing.JTextArea viewerTextArea;
     private javax.swing.JButton yesButton;

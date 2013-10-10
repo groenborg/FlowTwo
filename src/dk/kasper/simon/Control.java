@@ -97,7 +97,7 @@ public class Control {
                 String tmp = fileScan.next();
                 String[] tokens = tmp.split(",");
                 String l = tokens[0];
-                if(tokens[0].equalsIgnoreCase("Dread Pirate")) this.pirateMode = true;
+                if(tokens[0].equalsIgnoreCase("DreadPirate")) this.pirateMode = true;
                 int ad = Integer.parseInt(tokens[1]);
                 int an = Integer.parseInt(tokens[2]);
                 int cr = Integer.parseInt(tokens[3]);

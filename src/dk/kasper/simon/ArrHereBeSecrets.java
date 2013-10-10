@@ -5,11 +5,9 @@
 package dk.kasper.simon;
 
 import java.awt.Color;
-import javax.swing.JTextField;
 import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JPanel;
@@ -23,7 +21,6 @@ public class ArrHereBeSecrets {
     private static Random rnd;
     private String[] titles;
 
-    
     public ArrHereBeSecrets() {
         titles = new String[]{"Salty Seadog ", "Timber Fiddler", "Landlubber", "Dread Pirate ", "Cap'n ",
             "Scurvy Dog ", "Peglegged ", "Cutthroat ", "Deck swapper"};
@@ -36,22 +33,17 @@ public class ArrHereBeSecrets {
     }
 
     public Person dreadPirate(boolean del, Person p) {
-        p = new Person("Wirt",1000,1000,1000,1000);
+        p = new Person("Wirt", 1000, 1000, 1000, 1000);
         return p;
     }
 
     public void walkThePlank() {
     }
 
-    public void captainMorgan(){
-    
+    public void captainMorgan() {
     }
-    
-    
+
     public void fiddleMeTimber() {
-        
-        
-        
     }
 
     public String ohayThar(Person person) {
@@ -67,7 +59,6 @@ public class ArrHereBeSecrets {
         sb.append("SwashBuckling - You know how to swing ya sword and actually hit: \t");
         sb.append(person.getFinisher());
         return sb.toString();
-
     }
 
     public void ArrIBeNeedinANewPaintjobForMeBoat(JPanel a, JPanel b, JPanel c, JDialog d) {
@@ -90,30 +81,28 @@ public class ArrHereBeSecrets {
         help.setText("HELP!!!");
         file.setText("Where's the rum");
     }
-    
-    public void ArrChangeSomeTitles(JLabel na, JLabel ad, JLabel cre,JLabel an,JLabel fin,JLabel text1,JLabel text2, JButton one, JButton two){
-    na.setText("Crew Name");
-    ad.setText("Commandering");
-    an.setText("Navigation");
-    cre.setText("Carousing");
-    fin.setText("Swashbuckling");
-    text1.setText("Welcome to the crew you salty seadog. remember!");
-    text2.setText("Dont hire certain pirates!");
-    one.setText("Hire");
-    two.setText("Abandon Ship");
+
+    public void ArrChangeSomeTitles(JLabel na, JLabel ad, JLabel cre, JLabel an, JLabel fin, JLabel text1, JLabel text2, JButton one, JButton two) {
+        na.setText("Crew Name");
+        ad.setText("Commandering");
+        an.setText("Navigation");
+        cre.setText("Carousing");
+        fin.setText("Swashbuckling");
+        text1.setText("Welcome to the crew you salty seadog. remember!");
+        text2.setText("Dont hire certain pirates!");
+        one.setText("Hire");
+        two.setText("Abandon Ship");
     }
-    
-    public void ArrChangeSomeEditTitles(JLabel na, JLabel ad, JLabel cre,JLabel an,JLabel fin,JLabel text1,JLabel text2, JButton one, JButton two){
-    na.setText("Crew Name");
-    ad.setText("Commandering");
-    an.setText("Navigation");
-    cre.setText("Carousing");
-    fin.setText("Swashbuckling");
-    text1.setText("You lied you sea dog.. If i were cap'n i would keelhall you");
-    text2.setText("now dont lie about your skills... Pirate");
-    one.setText("Last chance");
-    two.setText("Throw overboard");
+
+    public void ArrChangeSomeEditTitles(JLabel na, JLabel ad, JLabel cre, JLabel an, JLabel fin, JLabel text1, JLabel text2, JButton one, JButton two) {
+        na.setText("Crew Name");
+        ad.setText("Commandering");
+        an.setText("Navigation");
+        cre.setText("Carousing");
+        fin.setText("Swashbuckling");
+        text1.setText("You lied you sea dog.. If i were cap'n i would keelhall you");
+        text2.setText("now dont lie about your skills... Pirate");
+        one.setText("Last chance");
+        two.setText("Throw overboard");
     }
-    
-    
 }
