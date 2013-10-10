@@ -74,40 +74,64 @@ public class ArrHereBeSecrets {
 
     public void ArrWhatBecomeOfMeCrew(JButton cre, JButton edi, JButton del, JLabel view, JLabel app, JMenu help, JMenu file) {
         cre.setText("New Crew");
-        cre.setToolTipText("Hire yer new lanlub crew");
+        cre.setToolTipText("Hire yer new freshman crewmembers");
+        cre.setFont(font);
         edi.setText("You lying..");
-        edi.setToolTipText("ya crewmember has a pegged leg... make him walk the plank");
-        del.setText("Walk the plank");
+        edi.setToolTipText("We ain't tolerating no lying filthy dog, make him fill it out proper.");
+        edi.setFont(font);
+        del.setText("Keelhaul");
+        del.setToolTipText("Keelhaul that filty landlubber, take him down to the deepst below!");
+        del.setFont(font);
         view.setToolTipText("The filthy scum aint worth one stinkin pice of gold");
         view.setText("See your filthy Sea Dogs here");
-        app.setToolTipText("Hire ya new crew.. ");
+        view.setFont(font);
+        app.setToolTipText("Hire ");
         app.setText("The Crew");
+        app.setFont(font);
         help.setText("HELP!!!");
         file.setText("Where's the rum");
     }
 
     public void ArrChangeSomeTitles(JLabel na, JLabel ad, JLabel cre, JLabel an, JLabel fin, JLabel text1, JLabel text2, JButton one, JButton two) {
         na.setText("Crew Name");
+        na.setFont(font);
         ad.setText("Commandering");
+        ad.setFont(font);
         an.setText("Navigation");
+        an.setFont(font);
         cre.setText("Carousing");
+        cre.setFont(font);
         fin.setText("Swashbuckling");
+        fin.setFont(font);
         text1.setText("Welcome to the crew you salty seadog. remember!");
         text2.setText("Dont hire certain pirates!");
+        text1.setFont(font);
+        text2.setFont(font);
         one.setText("Hire");
+        one.setFont(font);
         two.setText("Abandon Ship");
+        two.setFont(font);
     }
 
     public void ArrChangeSomeEditTitles(JLabel na, JLabel ad, JLabel cre, JLabel an, JLabel fin, JLabel text1, JLabel text2, JButton one, JButton two) {
         na.setText("Crew Name");
+        na.setFont(font);
         ad.setText("Commandering");
+        ad.setFont(font);
         an.setText("Navigation");
+        an.setFont(font);
         cre.setText("Carousing");
+        cre.setFont(font);
         fin.setText("Swashbuckling");
+        fin.setFont(font);
         text1.setText("You lied you sea dog.. If i were cap'n i would keelhall you");
         text2.setText("now dont lie about your skills... Pirate");
+        text1.setFont(font);
+        text2.setFont(font);
         one.setText("Last chance");
+        one.setFont(font);
         two.setText("Throw overboard");
+        two.setFont(font);
     }
     
     public void learnToWrite(JList list, JTextArea area, JLabel label){
