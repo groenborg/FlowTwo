@@ -584,7 +584,7 @@ public class MainFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(520, 360));
         setName("proManFrame"); // NOI18N
 
-        helpText.setText("Help is displayed in this label.");
+        helpText.setText("Help is displayed in this label");
         helpText.setToolTipText("Helpful information displayed here");
 
         viewText.setText("Viewer");
@@ -641,7 +641,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(helpText)
                             .addComponent(applicantsText))
-                        .addGap(0, 28, Short.MAX_VALUE)))
+                        .addGap(0, 32, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
