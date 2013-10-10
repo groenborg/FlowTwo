@@ -84,6 +84,15 @@ public class MainFrame extends javax.swing.JFrame {
         shipOkButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        aboutPirateFrame = new javax.swing.JFrame();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        simonPane = new javax.swing.JEditorPane();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        kasperPane = new javax.swing.JEditorPane();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        aboutPirateTextArea = new javax.swing.JTextArea();
+        aboutPirateClose = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
         helpText = new javax.swing.JLabel();
         viewText = new javax.swing.JLabel();
@@ -577,6 +586,73 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(171, 74, 21));
+
+        jScrollPane5.setViewportView(simonPane);
+
+        jScrollPane6.setViewportView(kasperPane);
+
+        aboutPirateTextArea.setColumns(20);
+        aboutPirateTextArea.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        aboutPirateTextArea.setRows(5);
+        aboutPirateTextArea.setText("This foul creation masquerading as a functional program, was spawned into the world by the fantastic pirate\nSimon Grønborg, and the normaltastic pirate Kasper Hald. May Davy Jones have mercy on their souls.\nNow spawn some pirates!");
+        jScrollPane7.setViewportView(aboutPirateTextArea);
+
+        aboutPirateClose.setText("Bother this nonsense!");
+        aboutPirateClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutPirateCloseActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(251, 251, 251)
+                        .addComponent(aboutPirateClose))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane6))
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(aboutPirateClose)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout aboutPirateFrameLayout = new javax.swing.GroupLayout(aboutPirateFrame.getContentPane());
+        aboutPirateFrame.getContentPane().setLayout(aboutPirateFrameLayout);
+        aboutPirateFrameLayout.setHorizontalGroup(
+            aboutPirateFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aboutPirateFrameLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        aboutPirateFrameLayout.setVerticalGroup(
+            aboutPirateFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aboutPirateFrameLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Team Manager");
         setBackground(new java.awt.Color(255, 0, 0));
@@ -882,6 +958,10 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_personListMousePressed
 
+    private void aboutPirateCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutPirateCloseActionPerformed
+        aboutPirateFrame.dispose();
+    }//GEN-LAST:event_aboutPirateCloseActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -963,6 +1043,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JFrame aboutFrame;
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JPanel aboutPanel;
+    private javax.swing.JButton aboutPirateClose;
+    private javax.swing.JFrame aboutPirateFrame;
+    private javax.swing.JTextArea aboutPirateTextArea;
     private javax.swing.JLabel adLabel;
     private javax.swing.JLabel anLabel;
     private javax.swing.JLabel applicantsText;
@@ -1005,14 +1088,19 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JEditorPane kasperPane;
     private javax.swing.JMenuItem loadMenuItem;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel nameLabel;
@@ -1027,6 +1115,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JFrame shipFrame;
     private javax.swing.JButton shipOkButton;
     private javax.swing.JEditorPane shipPane;
+    private javax.swing.JEditorPane simonPane;
     private javax.swing.JLabel textLabel1;
     private javax.swing.JLabel textLabel2;
     private javax.swing.JLabel viewText;
