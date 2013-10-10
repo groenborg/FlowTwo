@@ -808,11 +808,14 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void activatePirate(){
         if(secret==true){
+            Person.getmode(secret);
+            pirate.learnToWrite(personList, viewerTextArea, helpText);
             pirate.ArrChangeSomeTitles(nameLabel, adLabel, anLabel, finLabel,creaLabel, textLabel1, textLabel2, createButton, cancelButton);
             pirate.ArrChangeSomeEditTitles(editName, editAdmin, editAnal, editCrea, editFin, editText1, editText2, editPersonCreate, editPersonCancel);
             pirate.ArrWhatBecomeOfMeCrew(createButton, editButton, deleteButton, viewText, applicantsText, helpMenu, fileMenu);
+            
+        
         }
-    
     }
     
     public void newPerson(){
