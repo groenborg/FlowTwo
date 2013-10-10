@@ -22,8 +22,8 @@ import javax.swing.JTextArea;
 public class ArrHereBeSecrets {
     private static Font font;
     private static Random rnd;
-    private static String[] titles = new String[]{"Salty Seadog ", "Timber Fiddler", "Landlubber", "Dread Pirate ", "Cap'n ",
-            "Scurvy Dog ", "Peglegged ", "Cutthroat ", "Deck swapper"};
+    private static String[] titles = new String[]{"Salty Seadog ", "Timber Fiddler ", "Landlubber ", "Dread Pirate ", "Cap'n ",
+            "Scurvy Dog ", "Peglegged ", "Cutthroat ", "Deck swapper "};
 
     public ArrHereBeSecrets() {
         rnd = new Random();
@@ -53,13 +53,13 @@ public class ArrHereBeSecrets {
         StringBuilder sb = new StringBuilder();
         sb.append("Yer name: \t");
         sb.append(person.toString()).append("\n");
-        sb.append("Commandering \n keep the crew from mutinying: \t");
+        sb.append("\nCommandering \nKeep the crew from mutinying:\t");
         sb.append(person.getAdmin()).append("\n");
-        sb.append("Navigation \n You can read a map and row a boat: \t");
+        sb.append("\nNavigation \nYou can read a map and row a boat:\t");
         sb.append(person.getAnalyst()).append("\n");
-        sb.append("Carousing \n Yer voice is just slightly less terrible than others: \t");
+        sb.append("\nCarousing \nYer voice is just slightly less terrible than others:     ");
         sb.append(person.getCreative()).append("\n");
-        sb.append("SwashBuckling \n You know how to swing ya sword and actually hit: \t");
+        sb.append("\nSwashBuckling \nYou know how to swing ya sword and actually hit: ");
         sb.append(person.getFinisher());
         return sb.toString();
     }

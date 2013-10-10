@@ -20,6 +20,7 @@ public class Person {
         this.creative = creative;
         this.finisher = finisher;
         this.name = name;
+        this.secretTitle = ArrHereBeSecrets.ArrGetReadyYaLandlubber();
     }
 
     public void setSecretTitle(String secretTitle) {
@@ -70,7 +71,6 @@ public class Person {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         if(pirateMode==true){
-           this.secretTitle = ArrHereBeSecrets.ArrGetReadyYaLandlubber();
         sb.append(this.secretTitle);
         }
         sb.append(this.name);
