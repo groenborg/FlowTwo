@@ -28,7 +28,7 @@ public class ArrHereBeSecrets {
         titles = new String[]{"Salty Seadog ", "Timber Fiddler", "Landlubber", "Dread Pirate ", "Cap'n ",
             "Scurvy Dog ", "Peglegged ", "Cutthroat ", "Deck swapper"};
         rnd = new Random();
-        font = new Font("Papyrus",Font.PLAIN,12);
+        font = new Font("Times New Roman",Font.PLAIN,12);
     }
 
     public String ArrGetReadyYaLandlubber() {

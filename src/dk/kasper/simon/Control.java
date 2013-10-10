@@ -94,18 +94,23 @@ public class Control {
             this.persons = new ArrayList();
             fileScan = new Scanner(new File(path));
             while (fileScan.hasNext()) {
-                String tmp = fileScan.next();
+                String tmp = fileScan.nextLine();
                 String[] tokens = tmp.split(",");
                 String l = tokens[0];
-                if(tokens[0].equalsIgnoreCase("DreadPirate")) this.pirateMode = true;
+                if(tokens[0].equalsIgnoreCase("Dread Pirate")) this.pirateMode = true;
                 int ad = Integer.parseInt(tokens[1]);
                 int an = Integer.parseInt(tokens[2]);
                 int cr = Integer.parseInt(tokens[3]);
                 int fi = Integer.parseInt(tokens[4]);
+                for(int x = 0; x<tokens.length;++x){
+                    System.out.println(tokens[x]);
+                }
                 persons.add(new Person(l, ad, an, cr, fi));
             }
         } catch (FileNotFoundException ex) {
+            System.out.println("lol");
         } catch (Exception e) {
+            System.out.println("lul");
         }
     }
 
