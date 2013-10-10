@@ -8,7 +8,7 @@ public class MainFrame extends javax.swing.JFrame {
     private Control control;
     private DefaultListModel model;
     private Person tmp;
-    private boolean secret;
+    private static boolean secret;
     private ArrHereBeSecrets pirate;
 
     public MainFrame() {
@@ -835,7 +835,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void editFinFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFinFieldActionPerformed
     }//GEN-LAST:event_editFinFieldActionPerformed
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        if (this.secret) {
+        if (secret) {
             openWindows(aboutPirateFrame);
         } else {
             openWindows(aboutFrame);
@@ -926,7 +926,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void newPersonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonCreateActionPerformed
 
         if (createNameField.getText().equals("Dread Pirate")) {
-            this.secret = true;
+            secret = true;
             activatePirate();
             createFrame.dispose();
             openWindows(shipFrame);
@@ -962,7 +962,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void personListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personListMousePressed
         Object selected = personList.getSelectedValue();
         Person p = ((Person) selected);
-        if (this.secret) {
+        if (secret) {
             viewerTextArea.setText(pirate.ohayThar(p));
         } else {
             viewerTextArea.setText(p.showPerson());
@@ -1009,6 +1009,10 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
 
+    public static boolean getSecret(){
+        return secret;
+    }
+    
     private void activatePirate() {
         if (secret == true) {
             Person.getmode(secret);

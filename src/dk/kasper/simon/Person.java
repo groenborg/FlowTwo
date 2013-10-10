@@ -13,7 +13,7 @@ public class Person {
     private String name, secretTitle;
     private int admin, analyst, creative, finisher;
     private static boolean pirateMode;
-    
+
     public Person(String name, int admin, int analyst, int creative, int finisher) {
         this.admin = admin;
         this.analyst = analyst;
@@ -23,8 +23,8 @@ public class Person {
         this.secretTitle = ArrHereBeSecrets.ArrGetReadyYaLandlubber();
     }
 
-    public void setSecretTitle(String secretTitle) {
-        this.secretTitle = secretTitle;
+    public String getSecretTitle() {
+        return this.secretTitle;
     }
 
     public int getAdmin() {
@@ -42,6 +42,15 @@ public class Person {
     public int getFinisher() {
         return finisher;
     }
+
+    public static void getmode(boolean mode) {
+        pirateMode = mode;
+    }
+    
+    public String toFile() {
+        String person = name + "," + admin + "," + analyst + "," + creative + "," + finisher;
+        return person;
+    }
     
     public String showPerson() {
         StringBuilder sb = new StringBuilder();
@@ -58,22 +67,11 @@ public class Person {
         return sb.toString();
     }
 
-    public String toFile() {
-        String person = name + "," + admin + "," + analyst + "," + creative + "," + finisher;
-        return person;
-    }
-
-    public static void getmode(boolean mode){
-        pirateMode = mode;
-    }
-    
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        if(pirateMode==true){
-        sb.append(this.secretTitle);
+        if (pirateMode == true) {
+         return this.secretTitle + this.name;
         }
-        sb.append(this.name);
-        return sb.toString();
+        return this.name;
     }
 }

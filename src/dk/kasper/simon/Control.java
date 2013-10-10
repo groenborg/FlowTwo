@@ -78,7 +78,7 @@ public class Control {
 
     public void deletePerson(Person p, JLabel l) {
         for (int x = 0; x < persons.size(); ++x) {
-            if (persons.get(x).equals(p)) {
+            if (persons.get(x).equals(p)){
                 this.saveState = true;
                 persons.remove(x);
                 l.setText("Person deleted from the list");
