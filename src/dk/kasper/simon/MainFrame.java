@@ -64,6 +64,7 @@ public class MainFrame extends javax.swing.JFrame {
         editText1 = new javax.swing.JLabel();
         editName = new javax.swing.JLabel();
         aboutFrame = new javax.swing.JFrame();
+        aboutPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         aboutCloseButton = new javax.swing.JButton();
@@ -76,7 +77,13 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         yesDelete = new javax.swing.JButton();
         noDelete = new javax.swing.JButton();
-        piracyFrame = new javax.swing.JFrame();
+        shipFrame = new javax.swing.JFrame();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        shipPane = new javax.swing.JEditorPane();
+        shipOkButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
         helpText = new javax.swing.JLabel();
         viewText = new javax.swing.JLabel();
@@ -211,7 +218,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(createPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(newPersonCreate)
                     .addComponent(newPersonCancel))
-                .addContainerGap())
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout createFrameLayout = new javax.swing.GroupLayout(createFrame.getContentPane());
@@ -222,10 +229,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
         createFrameLayout.setVerticalGroup(
             createFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(createFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(createPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(createPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         editFrame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -340,7 +344,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(editPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editPersonCreate)
                     .addComponent(editPersonCancel))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout editFrameLayout = new javax.swing.GroupLayout(editFrame.getContentPane());
@@ -351,10 +355,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
         editFrameLayout.setVerticalGroup(
             editFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(editPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(editPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         aboutFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -375,27 +376,39 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout aboutFrameLayout = new javax.swing.GroupLayout(aboutFrame.getContentPane());
-        aboutFrame.getContentPane().setLayout(aboutFrameLayout);
-        aboutFrameLayout.setHorizontalGroup(
-            aboutFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(aboutFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(aboutFrameLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(aboutCloseButton)
-                .addContainerGap(77, Short.MAX_VALUE))
+        javax.swing.GroupLayout aboutPanelLayout = new javax.swing.GroupLayout(aboutPanel);
+        aboutPanel.setLayout(aboutPanelLayout);
+        aboutPanelLayout.setHorizontalGroup(
+            aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aboutPanelLayout.createSequentialGroup()
+                .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aboutPanelLayout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(aboutCloseButton))
+                    .addGroup(aboutPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        aboutFrameLayout.setVerticalGroup(
-            aboutFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(aboutFrameLayout.createSequentialGroup()
+        aboutPanelLayout.setVerticalGroup(
+            aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aboutPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(aboutCloseButton)
                 .addContainerGap())
+        );
+
+        javax.swing.GroupLayout aboutFrameLayout = new javax.swing.GroupLayout(aboutFrame.getContentPane());
+        aboutFrame.getContentPane().setLayout(aboutFrameLayout);
+        aboutFrameLayout.setHorizontalGroup(
+            aboutFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(aboutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        aboutFrameLayout.setVerticalGroup(
+            aboutFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(aboutPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel15.setText("Changes have been made to the list. Do you want to save the new list?");
@@ -501,15 +514,67 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout piracyFrameLayout = new javax.swing.GroupLayout(piracyFrame.getContentPane());
-        piracyFrame.getContentPane().setLayout(piracyFrameLayout);
-        piracyFrameLayout.setHorizontalGroup(
-            piracyFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jPanel1.setBackground(new java.awt.Color(171, 74, 21));
+
+        jScrollPane4.setViewportView(shipPane);
+
+        shipOkButton.setFont(new java.awt.Font("Papyrus", 0, 12)); // NOI18N
+        shipOkButton.setText("Piracy!");
+
+        jLabel1.setFont(new java.awt.Font("Papyrus", 0, 12)); // NOI18N
+        jLabel1.setText("Oy, you there landlubber, you just got hired to be me personal assistant.");
+
+        jLabel2.setFont(new java.awt.Font("Papyrus", 0, 12)); // NOI18N
+        jLabel2.setText("Get your pen, and start writin' down.");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(shipOkButton)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27))
         );
-        piracyFrameLayout.setVerticalGroup(
-            piracyFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(shipOkButton)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout shipFrameLayout = new javax.swing.GroupLayout(shipFrame.getContentPane());
+        shipFrame.getContentPane().setLayout(shipFrameLayout);
+        shipFrameLayout.setHorizontalGroup(
+            shipFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        shipFrameLayout.setVerticalGroup(
+            shipFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(shipFrameLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -893,6 +958,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton aboutCloseButton;
     private javax.swing.JFrame aboutFrame;
     private javax.swing.JMenuItem aboutMenuItem;
+    private javax.swing.JPanel aboutPanel;
     private javax.swing.JLabel adLabel;
     private javax.swing.JLabel anLabel;
     private javax.swing.JLabel applicantsText;
@@ -929,12 +995,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel finLabel;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JLabel helpText;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator5;
@@ -947,10 +1017,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton noButton;
     private javax.swing.JButton noDelete;
     private javax.swing.JList personList;
-    private javax.swing.JFrame piracyFrame;
     private javax.swing.JDialog quitBox;
     private javax.swing.JMenuItem quitMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JFrame shipFrame;
+    private javax.swing.JButton shipOkButton;
+    private javax.swing.JEditorPane shipPane;
     private javax.swing.JLabel textLabel1;
     private javax.swing.JLabel textLabel2;
     private javax.swing.JLabel viewText;
