@@ -102,15 +102,12 @@ public class Control {
                 int an = Integer.parseInt(tokens[2]);
                 int cr = Integer.parseInt(tokens[3]);
                 int fi = Integer.parseInt(tokens[4]);
-                for(int x = 0; x<tokens.length;++x){
-                    System.out.println(tokens[x]);
-                }
                 persons.add(new Person(l, ad, an, cr, fi));
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("lol");
+            
         } catch (Exception e) {
-            System.out.println("lul");
+            
         }
     }
 

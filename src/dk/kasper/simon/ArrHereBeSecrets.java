@@ -22,16 +22,15 @@ import javax.swing.JTextArea;
 public class ArrHereBeSecrets {
     private static Font font;
     private static Random rnd;
-    private String[] titles;
+    private static String[] titles = new String[]{"Salty Seadog ", "Timber Fiddler", "Landlubber", "Dread Pirate ", "Cap'n ",
+            "Scurvy Dog ", "Peglegged ", "Cutthroat ", "Deck swapper"};
 
     public ArrHereBeSecrets() {
-        titles = new String[]{"Salty Seadog ", "Timber Fiddler", "Landlubber", "Dread Pirate ", "Cap'n ",
-            "Scurvy Dog ", "Peglegged ", "Cutthroat ", "Deck swapper"};
         rnd = new Random();
         font = new Font("Times New Roman",Font.PLAIN,12);
     }
 
-    public String ArrGetReadyYaLandlubber() {
+    public static String ArrGetReadyYaLandlubber() {
         int x = rnd.nextInt(titles.length);
         return titles[x];
     }
