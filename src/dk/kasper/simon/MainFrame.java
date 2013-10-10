@@ -875,7 +875,11 @@ public class MainFrame extends javax.swing.JFrame {
     private void personListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personListMousePressed
         Object selected = personList.getSelectedValue();
         Person p = ((Person) selected);
-        viewerTextArea.setText(p.showPerson());
+        if(this.secret){
+            viewerTextArea.setText(pirate.ohayThar(p));
+        }else{
+            viewerTextArea.setText(p.showPerson());
+        }
     }//GEN-LAST:event_personListMousePressed
 
     public static void main(String args[]) {
@@ -917,7 +921,7 @@ public class MainFrame extends javax.swing.JFrame {
             pirate.ArrChangeSomeTitles(nameLabel, adLabel, anLabel, finLabel,creaLabel, textLabel1, textLabel2, newPersonCreate, newPersonCancel);
             pirate.ArrChangeSomeEditTitles(editName, editAdmin, editAnal, editCrea, editFin, editText1, editText2, editPersonCreate, editPersonCancel);
             pirate.ArrWhatBecomeOfMeCrew(createButton, editButton, deleteButton, viewText, applicantsText, helpMenu, fileMenu);
-            pirate.ArrIBeNeedinANewPaintjobForMeBoat(mainPanel, createPanel, editPanel, quitBox);
+            pirate.ArrIBeNeedinANewPaintjobForMeBoat(mainPanel, createPanel, editPanel, quitBox,viewerTextArea,personList);
         
         }
     }

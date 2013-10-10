@@ -54,22 +54,24 @@ public class ArrHereBeSecrets {
         StringBuilder sb = new StringBuilder();
         sb.append("Yer name: \t");
         sb.append(person.toString()).append("\n");
-        sb.append("Commandering - keep the crew from mutinying: \t");
+        sb.append("Commandering \n keep the crew from mutinying: \t");
         sb.append(person.getAdmin()).append("\n");
-        sb.append("Navigation - You can read a map and row a boat: \t");
+        sb.append("Navigation \n You can read a map and row a boat: \t");
         sb.append(person.getAnalyst()).append("\n");
-        sb.append("Carousing - Yer voice is just slightly less terrible than others: \t");
+        sb.append("Carousing \n Yer voice is just slightly less terrible than others: \t");
         sb.append(person.getCreative()).append("\n");
-        sb.append("SwashBuckling - You know how to swing ya sword and actually hit: \t");
+        sb.append("SwashBuckling \n You know how to swing ya sword and actually hit: \t");
         sb.append(person.getFinisher());
         return sb.toString();
     }
 
-    public void ArrIBeNeedinANewPaintjobForMeBoat(JPanel a, JPanel b, JPanel c, JDialog d) {
-        a.setBackground(Color.decode("#8b4513"));
-        b.setBackground(Color.decode("#8b4513"));
-        c.setBackground(Color.decode("#8b4513"));
-        d.setBackground(Color.decode("#8b4513"));
+    public void ArrIBeNeedinANewPaintjobForMeBoat(JPanel a, JPanel b, JPanel c, JDialog d, JTextArea area, JList list) {
+        a.setBackground(Color.decode("#AB4A15"));
+        b.setBackground(Color.decode("#AB4A15"));
+        c.setBackground(Color.decode("#AB4A15"));
+        d.setBackground(Color.decode("#AB4A15"));
+        area.setBackground(Color.decode("#E4CA6D"));
+        list.setBackground(Color.decode("#E4CA6D"));
     }
 
     public void ArrWhatBecomeOfMeCrew(JButton cre, JButton edi, JButton del, JLabel view, JLabel app, JMenu help, JMenu file) {
