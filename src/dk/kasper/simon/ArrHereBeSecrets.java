@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package dk.kasper.simon;
 
 import java.awt.Color;
@@ -16,10 +12,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-/**
- *
- * @author Simon
- */
 public class ArrHereBeSecrets {
 
     private static Font font;
@@ -42,8 +34,13 @@ public class ArrHereBeSecrets {
         }
     }
 
-    public static Person dreadPirate() {
+    public static Person wirtTheWonderBoy() {
         Person p = new Person("Wirt", 1000, 1000, 1000, 1000, true);
+        return p;
+    }
+    
+    public static Person thatMorganFellow(){
+        Person p = new Person("Morgan", 15, 15, 15, 15, false);
         return p;
     }
 

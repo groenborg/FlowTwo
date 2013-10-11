@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package dk.kasper.simon;
 
 import java.io.File;
@@ -11,10 +7,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JLabel;
 
-/**
- *
- * @author Simon
- */
 public class Control {
 
     private static Scanner fileScan;
@@ -26,7 +18,6 @@ public class Control {
 
     public Control() {
         this.saveState = false;
-        
         persons = new ArrayList();
         initialSetup();
     }
@@ -83,12 +74,11 @@ public class Control {
                 l.setText("Person deleted from the list");
                 if (p.getSecretTitle().equals("Cap'n ")){
                     MainFrame.setCaptain(false);
-                } else if (p.getSecretTitle().equals("Peglegged ")) {
-                    Person wirt = ArrHereBeSecrets.dreadPirate();
+                } else if (p.getSecretTitle().equals("Peglegged ") && MainFrame.getSecret()) {
+                    Person wirt = ArrHereBeSecrets.wirtTheWonderBoy();
                     this.persons.add(wirt);
                     this.saveState = true;
                     l.setText("The corpse of " + p.toString() + " rises from the dead! Wirt The Peglegged Boy has joind your crew!");
-
                 }
                 persons.remove(x);
             }

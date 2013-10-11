@@ -1,13 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package dk.kasper.simon;
 
-/**
- *
- * @author Simon
- */
 public class Person {
 
     private String name, secretTitle;
@@ -20,10 +12,10 @@ public class Person {
         this.creative = creative;
         this.finisher = finisher;
         this.name = name;
-        if (name != "Wirt"){
-            this.secretTitle = ArrHereBeSecrets.ArrGetReadyYaLandlubber();
-        } else {
+        if ("Wirt".equals(name)){
             this.secretTitle = "Peglegged ";
+        } else {
+            this.secretTitle = ArrHereBeSecrets.ArrGetReadyYaLandlubber();
         }
     }
 
