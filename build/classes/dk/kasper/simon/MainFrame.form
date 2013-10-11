@@ -451,7 +451,7 @@
                     </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="Promanager&#xa;Version 1.0.0.0&#xa;&#xa;Made by &#xa;Kasper M&#xf8;ller Hald&#xa;and&#xa;Simon Gr&#xf8;nborg&#xa;&#xa;Made as part of a&#xa;CPA Flow project.&#xa;&#xa;&#xa;&#xa;Question of the Day&#xa;&#xa;Have you ever&#xa;wondered how much&#xa;more intersting your&#xa;life would be if you&#xa;were a&#xa;&quot;Dread Pirate &quot;?"/>
+                    <Property name="text" type="java.lang.String" value="Promanager&#xa;Version 1.0.0.0&#xa;&#xa;Made by &#xa;Kasper M&#xf8;ller Hald&#xa;and&#xa;Simon Gr&#xf8;nborg&#xa;&#xa;Made as part of a&#xa;CPA Flow project.&#xa;&#xa;&#xa;&#xa;Question of the Day&#xa;&#xa;Have you ever&#xa;wondered how much&#xa;more intersting your&#xa;life would be if you&#xa;created a &#xa;&quot;Dread Pirate &quot;?"/>
                   </Properties>
                 </Component>
               </SubComponents>

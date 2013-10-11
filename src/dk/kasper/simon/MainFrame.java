@@ -370,7 +370,7 @@ public class MainFrame extends javax.swing.JFrame {
         jTextArea2.setBackground(new java.awt.Color(240, 240, 240));
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
-        jTextArea2.setText("Promanager\nVersion 1.0.0.0\n\nMade by \nKasper Møller Hald\nand\nSimon Grønborg\n\nMade as part of a\nCPA Flow project.\n\n\n\nQuestion of the Day\n\nHave you ever\nwondered how much\nmore intersting your\nlife would be if you\nwere a\n\"Dread Pirate \"?");
+        jTextArea2.setText("Promanager\nVersion 1.0.0.0\n\nMade by \nKasper Møller Hald\nand\nSimon Grønborg\n\nMade as part of a\nCPA Flow project.\n\n\n\nQuestion of the Day\n\nHave you ever\nwondered how much\nmore intersting your\nlife would be if you\ncreated a \n\"Dread Pirate \"?");
         jScrollPane2.setViewportView(jTextArea2);
 
         aboutCloseButton.setText("Close");
