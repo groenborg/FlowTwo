@@ -31,8 +31,8 @@ public class Control {
         initialSetup();
     }
 
-    public boolean createPerson(String n, int a, int b, int c, int d) {
-        Person person = new Person(n, a, b, c, d);
+    public boolean createPerson(String n, int a, int b, int c, int d, boolean cap) {
+        Person person = new Person(n, a, b, c, d, cap);
         this.persons.add(person);
         this.saveState = true;
         return false;
@@ -80,8 +80,17 @@ public class Control {
         for (int x = 0; x < persons.size(); ++x) {
             if (persons.get(x).equals(p)){
                 this.saveState = true;
-                persons.remove(x);
                 l.setText("Person deleted from the list");
+                if (p.getSecretTitle().equals("Cap'n ")){
+                    MainFrame.setCaptain(false);
+                } else if (p.getSecretTitle().equals("Peglegged ")) {
+                    Person wirt = ArrHereBeSecrets.dreadPirate();
+                    this.persons.add(wirt);
+                    this.saveState = true;
+                    l.setText("The corpse of " + p.toString() + " rises from the dead! Wirt The Peglegged Boy has joind your crew!");
+
+                }
+                persons.remove(x);
             }
         }
     }
@@ -98,7 +107,7 @@ public class Control {
                 int an = Integer.parseInt(tokens[2]);
                 int cr = Integer.parseInt(tokens[3]);
                 int fi = Integer.parseInt(tokens[4]);
-                persons.add(new Person(l, ad, an, cr, fi));
+                persons.add(new Person(l, ad, an, cr, fi, true));
             }
         } catch (FileNotFoundException ex) {
             

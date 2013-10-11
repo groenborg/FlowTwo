@@ -12,6 +12,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -20,23 +21,29 @@ import javax.swing.JTextArea;
  * @author Simon
  */
 public class ArrHereBeSecrets {
+
     private static Font font;
     private static Random rnd;
-    private static String[] titles = new String[]{"Salty Seadog ", "Timber Fiddler ", "Landlubber ", "Dread Pirate ", "Cap'n ",
-            "Scurvy Dog ", "Peglegged ", "Cutthroat ", "Deck swapper "};
+    private static String[] titles = new String[]{"Salty Seadog ", "Timber Fiddler ", "Landlubber ", "Dread Pirate ",
+        "Scurvy Dog ", "Peglegged ", "Cutthroat ", "Deck swapper "};
 
     public ArrHereBeSecrets() {
         rnd = new Random();
-        font = new Font("Times New Roman",Font.PLAIN,12);
+        font = new Font("Times New Roman", Font.PLAIN, 12);
     }
 
     public static String ArrGetReadyYaLandlubber() {
-        int x = rnd.nextInt(titles.length);
-        return titles[x];
+        if (MainFrame.getCaptain()) {
+            int x = rnd.nextInt(titles.length);
+            return titles[x];
+        } else {
+            MainFrame.setCaptain(true);
+            return "Cap'n ";
+        }
     }
 
-    public Person dreadPirate(boolean del, Person p) {
-        p = new Person("Wirt", 1000, 1000, 1000, 1000);
+    public static Person dreadPirate() {
+        Person p = new Person("Wirt", 1000, 1000, 1000, 1000, true);
         return p;
     }
 
@@ -90,7 +97,9 @@ public class ArrHereBeSecrets {
         app.setText("The Crew");
         app.setFont(font);
         help.setText("HELP!!!");
+        help.setFont(font);
         file.setText("Where's the rum");
+        file.setFont(font);
     }
 
     public void ArrChangeSomeTitles(JLabel na, JLabel ad, JLabel cre, JLabel an, JLabel fin, JLabel text1, JLabel text2, JButton one, JButton two) {
@@ -125,8 +134,8 @@ public class ArrHereBeSecrets {
         cre.setFont(font);
         fin.setText("Swashbuckling");
         fin.setFont(font);
-        text1.setText("You lied you sea dog.. If i were cap'n i would keelhall you");
-        text2.setText("now dont lie about your skills... Pirate");
+        text1.setText("You lied you sea dog.. If i were cap'n i would keelhaul you");
+        text2.setText("now dont lie about your skills, idiot.");
         text1.setFont(font);
         text2.setFont(font);
         one.setText("Last chance");
@@ -134,11 +143,21 @@ public class ArrHereBeSecrets {
         two.setText("Throw overboard");
         two.setFont(font);
     }
-    
-    public void learnToWrite(JList list, JTextArea area, JLabel label){
-    list.setFont(font);
-    area.setFont(font);
-    label.setFont(font);
+
+    public void changeTheMenus(JMenuItem sa, JMenuItem lo, JMenuItem qu, JMenuItem ab) {
+        sa.setText("Bury the papers!");
+        sa.setFont(font);
+        lo.setText("Dig up the papers!");
+        lo.setFont(font);
+        qu.setText("Abandon ship!");
+        qu.setFont(font);
+        ab.setText("Who did this?!");
+        ab.setFont(font);
     }
-    
+
+    public void learnToWrite(JList list, JTextArea area, JLabel label) {
+        list.setFont(font);
+        area.setFont(font);
+        label.setFont(font);
+    }
 }

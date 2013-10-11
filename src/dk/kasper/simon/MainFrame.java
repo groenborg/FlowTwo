@@ -10,6 +10,7 @@ public class MainFrame extends javax.swing.JFrame {
     private Person tmp;
     private static boolean secret;
     private ArrHereBeSecrets pirate;
+    private static boolean hasCaptain = false;
 
     public MainFrame() {
         initComponents();
@@ -18,8 +19,7 @@ public class MainFrame extends javax.swing.JFrame {
         pirate = new ArrHereBeSecrets();
         personList.setModel(model);
         control.loadFromFile();
-        helpText.setText("File succesfully Loaded");
-
+        helpText.setText("File succesfully loaded");
         refreshList();
     }
 
@@ -712,23 +712,27 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(helpText)
-                    .addComponent(applicantsText))
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(viewText)
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addContainerGap()
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(applicantsText))
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(viewText)
                             .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addComponent(createButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(editButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(10, 10, 10)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane3)
+                                    .addGroup(mainPanelLayout.createSequentialGroup()
+                                        .addComponent(createButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(editButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(helpText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
@@ -897,7 +901,8 @@ public class MainFrame extends javax.swing.JFrame {
         int fi = Integer.parseInt(editFinField.getText());
         if (!control.checkInputs(name, ad, an, cr, fi, helpText)) {
             control.deletePerson(tmp, helpText);
-            control.createPerson(name, ad, an, cr, fi);
+            
+            control.createPerson(name, ad, an, cr, fi, hasCaptain);
             refreshList();
             editFrame.dispose();
             helpText.setText("Person was edited");
@@ -1017,11 +1022,24 @@ public class MainFrame extends javax.swing.JFrame {
         if (secret == true) {
             Person.getmode(secret);
             pirate.learnToWrite(personList, viewerTextArea, helpText);
+            pirate.changeTheMenus(saveMenuItem, loadMenuItem, quitMenuItem, aboutMenuItem);
             pirate.ArrChangeSomeTitles(nameLabel, adLabel, anLabel, finLabel, creaLabel, textLabel1, textLabel2, newPersonCreate, newPersonCancel);
             pirate.ArrChangeSomeEditTitles(editName, editAdmin, editAnal, editCrea, editFin, editText1, editText2, editPersonCreate, editPersonCancel);
             pirate.ArrWhatBecomeOfMeCrew(createButton, editButton, deleteButton, viewText, applicantsText, helpMenu, fileMenu);
             pirate.ArrIBeNeedinANewPaintjobForMeBoat(mainPanel, createPanel, editPanel, quitBox, viewerTextArea, personList);
         }
+    }
+    
+    public static void setCaptain(boolean yes){
+        if (yes){
+            hasCaptain = true;
+        } else {
+            hasCaptain = false;
+        }
+    }
+    
+    public static boolean getCaptain(){
+        return hasCaptain;
     }
 
     public void newPerson() {
@@ -1036,7 +1054,7 @@ public class MainFrame extends javax.swing.JFrame {
             int cr = Integer.parseInt(rc);
             int fi = Integer.parseInt(fin);
             if (!control.checkInputs(name, ad, an, cr, fi, helpText)) {
-                control.createPerson(name, ad, an, cr, fi);
+                control.createPerson(name, ad, an, cr, fi, hasCaptain);
                 refreshList();
                 helpText.setText("Person created");
                 createFrame.dispose();

@@ -14,13 +14,17 @@ public class Person {
     private int admin, analyst, creative, finisher;
     private static boolean pirateMode;
 
-    public Person(String name, int admin, int analyst, int creative, int finisher) {
+    public Person(String name, int admin, int analyst, int creative, int finisher, boolean cap) {
         this.admin = admin;
         this.analyst = analyst;
         this.creative = creative;
         this.finisher = finisher;
         this.name = name;
-        this.secretTitle = ArrHereBeSecrets.ArrGetReadyYaLandlubber();
+        if (name != "Wirt"){
+            this.secretTitle = ArrHereBeSecrets.ArrGetReadyYaLandlubber();
+        } else {
+            this.secretTitle = "Peglegged ";
+        }
     }
 
     public String getSecretTitle() {
@@ -46,12 +50,12 @@ public class Person {
     public static void getmode(boolean mode) {
         pirateMode = mode;
     }
-    
+
     public String toFile() {
         String person = name + "," + admin + "," + analyst + "," + creative + "," + finisher;
         return person;
     }
-    
+
     public String showPerson() {
         StringBuilder sb = new StringBuilder();
         sb.append("Name: \t");
@@ -70,7 +74,7 @@ public class Person {
     @Override
     public String toString() {
         if (pirateMode == true) {
-         return this.secretTitle + this.name;
+            return this.secretTitle + this.name;
         }
         return this.name;
     }
