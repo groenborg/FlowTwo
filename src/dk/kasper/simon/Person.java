@@ -1,5 +1,9 @@
 package dk.kasper.simon;
 
+/*
+ * This class makes a person, to be put into the list. Logic here is keept to
+ * a minimum, andmost methods are here to return values for other methods.
+*/
 public class Person {
 
     private String name, secretTitle;

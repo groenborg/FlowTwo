@@ -3,6 +3,18 @@ package dk.kasper.simon;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 
+/*
+*   Flow 2 - TEAM
+*   Made by Kasper Hald and Simon Grønborg
+*   
+*   Made as a flow project at CBA
+*   
+*   
+*   This class contains the primary frame as well as the secondary frames and
+*   dialogue boxes. It also contains the button event listeners, and a small
+*   amount of the logic. Most of the logic is placed in the control method.
+*   
+*/
 public class MainFrame extends javax.swing.JFrame {
 
     private Control control;
@@ -829,6 +841,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    //  The following methods are for the event listeners.
+
     private void loadMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadMenuItemActionPerformed
         control.loadFromFile();
         helpText.setText("File succesfully Loaded");
@@ -981,6 +996,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_shipOkButtonActionPerformed
 
+    //  The Main is run from her.
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1012,6 +1029,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    //  Some of the neccesary logic is run from here.
 
     public boolean dreadCheck(String name) {
         String dreadPirate = "dreadpirate";
@@ -1082,6 +1101,7 @@ public class MainFrame extends javax.swing.JFrame {
             model.addElement(control.giveArray(x));
         }
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutCloseButton;
     private javax.swing.JFrame aboutFrame;

@@ -12,6 +12,12 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+/*
+ * This class is used entirely for handling the secret easteregg pirate mode.
+ * Methods here change the layout of the program, and the proper text to
+ * reflect it's pirate theme. No program logic for the vanilla program, is
+ * done in this file.
+*/
 public class ArrHereBeSecrets {
 
     private static Font font;

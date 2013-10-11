@@ -7,6 +7,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JLabel;
 
+/*
+ * This class contains most of the programs logic, for creating, editing,
+ * and deleting persons, as well as handling filesaving and loading.
+ * Handling of the personlist is also done here.
+*/
+
 public class Control {
 
     private static Scanner fileScan;
