@@ -901,7 +901,7 @@ public class MainFrame extends javax.swing.JFrame {
         int fi = Integer.parseInt(editFinField.getText());
         if (!control.checkInputs(name, ad, an, cr, fi, helpText)) {
             control.deletePerson(tmp, helpText);
-            
+
             control.createPerson(name, ad, an, cr, fi, hasCaptain);
             refreshList();
             editFrame.dispose();
@@ -929,8 +929,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_newPersonCancelActionPerformed
 
     private void newPersonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonCreateActionPerformed
-
-        if (createNameField.getText().equals("Dread Pirate")) {
+        if (dreadCheck(createNameField.getText())) {
             secret = true;
             activatePirate();
             createFrame.dispose();
@@ -1014,10 +1013,19 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
 
-    public static boolean getSecret(){
+    public boolean dreadCheck(String name) {
+        String dreadPirate = "dreadpirate";
+        String createPersonInput = name.replace(" ", "").toLowerCase();
+        if (createPersonInput.equals(dreadPirate)) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean getSecret() {
         return secret;
     }
-    
+
     private void activatePirate() {
         if (secret == true) {
             Person.getmode(secret);
@@ -1029,16 +1037,16 @@ public class MainFrame extends javax.swing.JFrame {
             pirate.ArrIBeNeedinANewPaintjobForMeBoat(mainPanel, createPanel, editPanel, quitBox, viewerTextArea, personList);
         }
     }
-    
-    public static void setCaptain(boolean yes){
-        if (yes){
+
+    public static void setCaptain(boolean yes) {
+        if (yes) {
             hasCaptain = true;
         } else {
             hasCaptain = false;
         }
     }
-    
-    public static boolean getCaptain(){
+
+    public static boolean getCaptain() {
         return hasCaptain;
     }
 
